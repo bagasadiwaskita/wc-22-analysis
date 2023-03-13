@@ -10,8 +10,8 @@ FIFA World Cup Qatar 2022 had done with Argentina as the champions of the compet
 
 Given historical data leading up to the World Cup 2022, I would like to determine which countries are underperformed or overachieved in the World Cup 2022. To achieve the goals, my analysis focused into data about all participating teams' **FIFA Ranking**, **squads**, and **recent international match results**.
 
-The dataset I used for this analysis is from [Maven Analytics](https://www.mavenanalytics.io/data-playground)
+The dataset I used for this analysis is from [Maven Analytics](https://www.mavenanalytics.io/data-playground).
 
-## Analysis 1: FIFA Ranking
+## Data Preparation
 
-FIFA Ranking is a ranking system for national teams in association football. Here is FIFA Ranking at the moment before World Cup 2022 starts.
+
