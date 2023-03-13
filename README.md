@@ -20,5 +20,9 @@ There are many tables in the World Cup Dataset. To make it easier to analyze, I 
 
 Table that contains FIFA Ranking values is *2022_world_cup_groups.csv*. No changes needed in the table since the data used for analysis is already shown.
 ```
-SELECT * FROM \`world_cup.2022_world_cup_groups\`
+SELECT * FROM `world_cup.2022_world_cup_groups`
 ```
+
+### 2. Squads
+
+Table that contains squads details is *2022_world_cup_squads.csv*.
