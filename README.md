@@ -14,15 +14,41 @@ The dataset I used for this analysis is from [Maven Analytics](https://www.maven
 
 ## Data Preparation
 
-There are many tables in the World Cup Dataset. To make it easier to analyze, I will group all data used for analysis in 1 table. The tools I used on this step is ***MySQL Workspace*** in [sqliteonline.com](https://sqliteonline.com/).
+There are many tables in the World Cup Dataset. To make it easier to analyze, I will join all data used for analysis in 1 table. The tools I used on this step is ***MySQL Workspace*** in [sqliteonline.com](https://sqliteonline.com/).
 
 ### 1. FIFA Ranking
 
-Table that contains FIFA Ranking values is *2022_world_cup_groups.csv*. I rename the table into *wc22_groups.csv* to create the naming convention for this project. Other than that, no changes needed since the data that will be used is there already.
+FIFA Ranking (in this context is FIFA Men's World Ranking) is a ranking system by FIFA for men's national teams in association football. The national teams of the men's member nations of FIFA are ranked based on ther game result with the most successful teams being ranked highest. That means FIFA Ranking is one of the main measurement of team's strength.
+
+Table that contains FIFA Ranking values is *2022_world_cup_groups.csv*. I rename the table into *wc22_groups.csv* to create the naming convention for this project. Other than that, no changes needed. I used SQL on this step since it is pretty straghtforward.
 ```
-SELECT * FROM wc22_groups
+SELECT * FROM wc22_groups;
 ```
 
 ### 2. Squads
 
-Table that contains squads details is *2022_world_cup_squads.csv*.
+There are a lot of information in team squad's data, such as player's name, position he plays, age, etc. In this step, I will use team's *average of player's age, caps, goals, and goals per caps*. I also decided that team's average of player's goals per caps is one of the main measurement of team's strength, since it can show how is that team's goals productivity.
+
+Table that contains squads details is *2022_world_cup_squads.csv*. I rename the table into *wc22_squads.csv* to keep the naming convention consistent. To get the data I needed, I have to create SQL Query that:
+
+- create new column in the table named *GoalsPerCaps* that counts every player's goals per caps,
+- show the table of all participated teams with their values of average of age, caps, goals, and goals per caps.
+```
+-- Create new column named 'GoalsPerCaps'
+ALTER TABLE wc22_squads ADD COLUMN GoalsPerCaps FLOAT;
+
+-- Update the value of 'GoalsPerCaps' column
+-- Use IFNULL and NULLIF func. to avoid divide by zero error
+UPDATE wc22_squads SET GoalsPerCaps=IFNULL(Goals/NULLIF(Caps,0),0);
+
+-- Show the table of teams with their squads info average
+-- I will use round 4 decimal
+SELECT DISTINCT Team,
+       ROUND(AVG(Age),4) AS Avg_Age,
+       ROUND(AVG(Caps),4) AS Avg_Caps,
+       ROUND(AVG(Goals),4) AS Avg_Goals,
+       ROUND(AVG(GoalsPerCaps),4) AS Avg_GoalsPerCaps
+FROM wc22_squads GROUP BY Team;
+```
+
+### 3. Recent International Matches Results
