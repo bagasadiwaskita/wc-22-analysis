@@ -14,7 +14,7 @@ The dataset I used for this analysis is from [Maven Analytics](https://www.maven
 
 ## Data Preparation
 
-There are many tables in the World Cup Dataset. To make it easier to analyze, I will join all data used for analysis in 1 table. The tools I used on this step is ***MySQL Workspace*** in [sqliteonline.com](https://sqliteonline.com/).
+There are many tables in the World Cup Dataset. To make it easier to analyze, I will join all data used for analysis in 1 table. The tool I used on this step is ***MySQL Workspace*** in [sqliteonline.com](https://sqliteonline.com/).
 
 ### 1. FIFA Ranking
 
@@ -27,7 +27,7 @@ SELECT * FROM wc22_groups;
 
 ### 2. Squads
 
-There are a lot of information in team squad's data, such as player's name, position he plays, age, etc. In this step, I will use team's *average of player's age, caps, goals, and goals per caps*. I also decided that team's average of player's goals per caps is one of the main measurement of team's strength, since it can show how is that team's goals productivity.
+There are a lot of information in team squad's data, such as player's name, position he plays, age, etc. In this step, I will use team's *average of player's age, caps, goals, and goals per caps*. I also decided that team's average of player's goals per caps is one of the main measurement of team's strength, since it can shows how is the team's goal productivity.
 
 Table that contains squads details is *2022_world_cup_squads.csv*. I rename the table into *wc22_squads.csv* to keep the naming convention consistent. To get the data I needed, I have to create SQL Query that:
 
