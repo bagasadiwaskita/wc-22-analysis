@@ -14,13 +14,13 @@ The dataset I used for this analysis is from [Maven Analytics](https://www.maven
 
 ## Data Preparation
 
-There are many tables in the World Cup Dataset. To make it easier to analyze, I will group all data used for analysis in 1 table. The tools I used on this step is ***SQL Workspace*** in ***Google BigQuery***.
+There are many tables in the World Cup Dataset. To make it easier to analyze, I will group all data used for analysis in 1 table. The tools I used on this step is ***MySQL Workspace*** in [sqliteonline.com](https://sqliteonline.com/).
 
 ### 1. FIFA Ranking
 
-Table that contains FIFA Ranking values is *2022_world_cup_groups.csv*. No changes needed in the table since the data used for analysis is already shown.
+Table that contains FIFA Ranking values is *2022_world_cup_groups.csv*. I rename the table into *wc22_groups.csv* to create the naming convention for this project. Other than that, no changes needed since the data that will be used is there already.
 ```
-SELECT * FROM `world_cup.2022_world_cup_groups`
+SELECT * FROM wc22_groups
 ```
 
 ### 2. Squads
