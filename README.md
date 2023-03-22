@@ -59,13 +59,13 @@ Football match in general is the main showdown of football to show which team is
 
 Table that contains international matches details is *[international_matches.csv](https://github.com/bagasadiwaskita/wc-22-analysis/blob/9c26a0324084f72e5264f99c26d22bda97038a14/World%20Cup%20Dataset%20(Original)/international_matches.csv)*. To collect the needed data, I used Python in this step since it would be too difficult if I did it in SQL.
 
-Details about what I do in this step is in *[intl_matches_summary.ipynb](https://github.com/bagasadiwaskita/wc-22-analysis/blob/9c26a0324084f72e5264f99c26d22bda97038a14/Pre-processing/intl_matches_summary.ipynb)* and the result of this step is *[intl_matches_summary.csv](https://github.com/bagasadiwaskita/wc-22-analysis/blob/9c26a0324084f72e5264f99c26d22bda97038a14/Pre-processing/intl_matches_summary.csv)*.
+Details about what I do in this step is in *[intl_matches_summary.ipynb](https://github.com/bagasadiwaskita/wc-22-analysis/blob/20dfbe8bd318553ca3c0a1e994b5c3cfc8bbf8ae/Pre-processing/intl_matches_summary.ipynb)* and the result of this step is *[intl_matches_summary.csv](https://github.com/bagasadiwaskita/wc-22-analysis/blob/20dfbe8bd318553ca3c0a1e994b5c3cfc8bbf8ae/Pre-processing/intl_matches_summary.csv)*.
 
 ### 4. Joining the Table and Show the Main Index of Team Strength
 
 Since the needed data is collected, I have to create SQL query that:
 
-1. join all 3 tables I get before,
-2. show the data related to team's strength of team's strength I've decided.
+1. join all 3 tables I've got before,
+2. show the data related to team's strength.
 
 I decided that I would show **the group, team name, FIFA Ranking, team's average of age, goals, caps, goals per caps, recent matches' goals scored per match, goals conceded per match, win rate, win streak, and unbeaten streak**.
