@@ -12,7 +12,7 @@ Given historical data leading up to the World Cup 2022, I would like to determin
 
 The dataset I used for this analysis is from [Maven Analytics](https://www.mavenanalytics.io/data-playground).
 
-## Data Preparation
+## Data Pre-processing
 
 There are many tables in the World Cup Dataset. To make it easier to analyze, I will join all data used for analysis in 1 table. The tool I used on this step is ***MySQL Workspace*** in ***[sqliteonline.com](https://sqliteonline.com/)*** and ***Python*** in ***Jupyter Notebook***.
 
@@ -61,11 +61,30 @@ Table that contains international matches details is *[international_matches.csv
 
 Details about what I do in this step is in *[intl_matches_summary.ipynb](https://github.com/bagasadiwaskita/wc-22-analysis/blob/20dfbe8bd318553ca3c0a1e994b5c3cfc8bbf8ae/Pre-processing/intl_matches_summary.ipynb)* and the result of this step is *[intl_matches_summary.csv](https://github.com/bagasadiwaskita/wc-22-analysis/blob/20dfbe8bd318553ca3c0a1e994b5c3cfc8bbf8ae/Pre-processing/intl_matches_summary.csv)*.
 
-### 4. Joining the Table and Show the Main Index of Team Strength
+### 4. Joining the Table and Show the Data Related to Team Strength
 
-Since the needed data is collected, I have to create SQL query that:
+Since the needed data is already collected, I have to create SQL query that:
 
 1. join all 3 tables I've got before,
-2. show the data related to team's strength.
+2. show the data related to team strength.
 
 I decided that I would show **the group, team name, FIFA Ranking, team's average of age, goals, caps, goals per caps, recent matches' goals scored per match, goals conceded per match, win rate, win streak, and unbeaten streak**.
+```
+SELECT groups.Group, groups.Team, groups.FIFA_Ranking,
+       squads.Avg_Age, squads.Avg_Caps, squads.Avg_Goals, squads.Avg_GoalsPerCaps,
+       matches.Goals_Scored_per_Match, matches.Goals_Conceded_per_Match,
+       matches.Win_Rate_Percentage, matches.Current_Win_Streak, matches.Longest_Win_Streak,
+       matches.Current_Unbeaten_Streak, matches.Longest_Unbeaten_Streak
+FROM wc22_groups AS groups
+INNER JOIN wc22_squads AS squads ON groups.Team = squads.Team
+INNER JOIN intl_matches_summary AS matches ON groups.Team = matches.Team
+```
+The result of this step is *[wc22_final_table.csv](https://github.com/bagasadiwaskita/wc-22-analysis/blob/b555da1e5a677eeeaac7f036bc12a24802f7a6a2/Pre-processing/wc22_final_table.csv)*.
+
+## Analysis with Visualization
+
+In this section, I will analyze all the information from *[wc22_final_table.csv](https://github.com/bagasadiwaskita/wc-22-analysis/blob/b555da1e5a677eeeaac7f036bc12a24802f7a6a2/Pre-processing/wc22_final_table.csv)*.
+
+### 1. Age
+
+Age sometimes could means something for football players. From common people's point of view, older football players considered not as agile as the younger ones but their experience is definitely a plus point for them. Since there is no clear boundaries to determine which one is better between older or younger football player, **I decided to not consider age as the main index of team strength**. Let's take a look on how is the average of age at all football players participated in the World Cup 2022 grouped by their team.
