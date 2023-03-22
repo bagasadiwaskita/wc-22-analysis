@@ -18,7 +18,7 @@ There are many tables in the World Cup Dataset. To make it easier to analyze, I 
 
 ### 1. FIFA Ranking
 
-FIFA Ranking (in this context is FIFA Men's World Ranking) is a ranking system by FIFA for men's national teams in association football. The national teams of the men's member nations of FIFA are ranked based on ther game result with the most successful teams being ranked highest. That means **FIFA Ranking is one of the main index of team's strength**.
+FIFA Ranking (in this context is FIFA Men's World Ranking) is a ranking system by FIFA for men's national teams in association football. The national teams of the men's member nations of FIFA are ranked based on ther game result with the most successful teams being ranked highest.
 
 Table that contains FIFA Ranking values is *[2022_world_cup_groups.csv](https://github.com/bagasadiwaskita/wc-22-analysis/blob/4ed12b5e4bcb603c9e448a49eaf9221c535e38c0/World%20Cup%20Dataset%20(Original)/2022_world_cup_groups.csv)*. I rename the table into *wc22_groups.csv* to simplify the name. Other than that, no changes needed. I used SQL on this step since it is pretty straghtforward.
 ```
@@ -28,12 +28,12 @@ The result of this step is *[wc22_groups.csv](https://github.com/bagasadiwaskita
 
 ### 2. Squads
 
-There are a lot of information in team squad's data, such as player's name, position he plays, age, etc. In this step, I will use team's *average of player's age, caps, goals, and goals per caps*. I also decided that **team's average of player's goals per caps is one of the main index of team's strength**, since it can shows how is the average of player's individual performance on the team.
+There are a lot of information in team squad's data, such as player's name, position he plays, age, etc. In this step, I will use team's *average of player's age, caps, goals, and goals per caps*.
 
 Table that contains squads details is *[2022_world_cup_squads.csv](https://github.com/bagasadiwaskita/wc-22-analysis/blob/4ed12b5e4bcb603c9e448a49eaf9221c535e38c0/World%20Cup%20Dataset%20(Original)/2022_world_cup_squads.csv)*. I rename the table into *wc22_squads.csv* to simplify the name. To get the data I needed, I have to create SQL query that:
 
-- create new column in the table named *GoalsPerCaps* that counts every player's goals per caps,
-- show the table of all participated teams with their values of average of age, caps, goals, and goals per caps.
+1. create new column in the table named *GoalsPerCaps* that counts every player's goals per caps,
+2. show the table of all participated teams with their values of average of age, caps, goals, and goals per caps.
 ```
 -- Create new column named 'GoalsPerCaps'
 ALTER TABLE wc22_squads ADD COLUMN GoalsPerCaps FLOAT;
@@ -55,4 +55,17 @@ The result of this step is *[wc22_squads.csv](https://github.com/bagasadiwaskita
 
 ### 3. Recent International Matches Results
 
+Football match in general is the main showdown of football to show which team is stronger at the moment, so it is impossible to ignore international matches results to look which national team is stronger than the others. That means **recent international matches results is one of the main index of team's strength**.
 
+Table that contains international matches details is *[international_matches.csv](https://github.com/bagasadiwaskita/wc-22-analysis/blob/9c26a0324084f72e5264f99c26d22bda97038a14/World%20Cup%20Dataset%20(Original)/international_matches.csv)*. To collect the needed data, I used Python in this step since it would be too difficult if I did it in SQL.
+
+Details about what I do in this step is in *[intl_matches_summary.ipynb](https://github.com/bagasadiwaskita/wc-22-analysis/blob/9c26a0324084f72e5264f99c26d22bda97038a14/Pre-processing/intl_matches_summary.ipynb)* and the result of this step is *[intl_matches_summary.csv](https://github.com/bagasadiwaskita/wc-22-analysis/blob/9c26a0324084f72e5264f99c26d22bda97038a14/Pre-processing/intl_matches_summary.csv)*.
+
+### 4. Joining the Table and Show the Main Index of Team Strength
+
+Since the needed data is collected, I have to create SQL query that:
+
+1. join all 3 tables I get before,
+2. show the data related to team's strength of team's strength I've decided.
+
+I decided that I would show **the group, team name, FIFA Ranking, team's average of age, goals, caps, goals per caps, recent matches' goals scored per match, goals conceded per match, win rate, win streak, and unbeaten streak**.
