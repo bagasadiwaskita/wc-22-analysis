@@ -30,28 +30,17 @@ The result of this step is *[wc22_groups.csv](https://github.com/bagasadiwaskita
 
 There are a lot of information in team squad's data, such as player's name, position he plays, age, etc. In this step, I will use team's *average of player's age, caps, goals, and goals per caps*.
 
-Table that contains squads details is *[2022_world_cup_squads.csv](https://github.com/bagasadiwaskita/wc-22-analysis/blob/4ed12b5e4bcb603c9e448a49eaf9221c535e38c0/World%20Cup%20Dataset%20(Original)/2022_world_cup_squads.csv)*. I rename the table into *wc22_squads.csv* to simplify the name. To get the data I needed, I have to create SQL query that:
-
-1. create new column in the table named *GoalsPerCaps* that counts every player's goals per caps,
-2. show the table of all participated teams with their values of average of age, caps, goals, and goals per caps.
+Table that contains squads details is *[2022_world_cup_squads.csv](https://github.com/bagasadiwaskita/wc-22-analysis/blob/4ed12b5e4bcb603c9e448a49eaf9221c535e38c0/World%20Cup%20Dataset%20(Original)/2022_world_cup_squads.csv)*. I rename the table into *wc22_squads.csv* to simplify the name. To get the data I needed, I have to create SQL query that show the table of all participated teams with their values of average of age, caps, goals, and goals per caps.
 ```
--- Create new column named 'GoalsPerCaps'
-ALTER TABLE wc22_squads ADD COLUMN GoalsPerCaps FLOAT;
-
--- Update the value of 'GoalsPerCaps' column
--- Use IFNULL and NULLIF func. to avoid divide by zero error
-UPDATE wc22_squads SET GoalsPerCaps=IFNULL(Goals/NULLIF(Caps,0),0);
-
--- Show the table of teams with their squads info average
 -- I will use round 4 decimal
 SELECT DISTINCT Team,
        ROUND(AVG(Age),4) AS Avg_Age,
        ROUND(AVG(Caps),4) AS Avg_Caps,
        ROUND(AVG(Goals),4) AS Avg_Goals,
-       ROUND(AVG(GoalsPerCaps),4) AS Avg_GoalsPerCaps
+       ROUND((AVG(Goals) / AVG(Caps)),4) AS Avg_GoalsPerCaps
 FROM wc22_squads GROUP BY Team;
 ```
-The result of this step is *[wc22_squads.csv](https://github.com/bagasadiwaskita/wc-22-analysis/blob/ffdc2b1032c40c2deb6c66c9c13b6ec0f2418ee0/Pre-processing/wc22_squads.csv)*.
+The result of this step is *[wc22_squads.csv](https://github.com/bagasadiwaskita/wc-22-analysis/blob/f97a4c10ddf353d8b5204dfcc2502a8ba505d369/Pre-processing/wc22_squads.csv)*.
 
 ### 3. Recent International Matches Results
 
@@ -59,7 +48,7 @@ Football match in general is the main showdown of football to show which team is
 
 Table that contains international matches details is *[international_matches.csv](https://github.com/bagasadiwaskita/wc-22-analysis/blob/9c26a0324084f72e5264f99c26d22bda97038a14/World%20Cup%20Dataset%20(Original)/international_matches.csv)*. To collect the needed data, I used Python in this step since it would be too difficult if I did it in SQL.
 
-Details about what I do in this step is in *[intl_matches_summary.ipynb](https://github.com/bagasadiwaskita/wc-22-analysis/blob/20dfbe8bd318553ca3c0a1e994b5c3cfc8bbf8ae/Pre-processing/intl_matches_summary.ipynb)* and the result of this step is *[intl_matches_summary.csv](https://github.com/bagasadiwaskita/wc-22-analysis/blob/20dfbe8bd318553ca3c0a1e994b5c3cfc8bbf8ae/Pre-processing/intl_matches_summary.csv)*.
+Details about what I do in this step is in *[intl_matches_summary.ipynb](https://github.com/bagasadiwaskita/wc-22-analysis/blob/f97a4c10ddf353d8b5204dfcc2502a8ba505d369/Pre-processing/intl_matches_summary.ipynb)* and the result of this step is *[intl_matches_summary.csv](https://github.com/bagasadiwaskita/wc-22-analysis/blob/f97a4c10ddf353d8b5204dfcc2502a8ba505d369/Pre-processing/intl_matches_summary.csv)*.
 
 ### 4. Joining the Table and Show the Data Related to Team Strength
 
@@ -72,18 +61,18 @@ I decided that I would show **the group, team name, FIFA Ranking, team's average
 ```
 SELECT groups.Group, groups.Team, groups.FIFA_Ranking,
        squads.Avg_Age, squads.Avg_Caps, squads.Avg_Goals, squads.Avg_GoalsPerCaps,
-       matches.Goals_Scored_per_Match, matches.Goals_Conceded_per_Match,
-       matches.Win_Rate_Percentage, matches.Current_Win_Streak, matches.Longest_Win_Streak,
+       matches.Win_Rate_Percentage, matches.Goals_Scored_per_Match,
+       matches.Goals_Conceded_per_Match, matches.Current_Win_Streak, matches.Longest_Win_Streak,
        matches.Current_Unbeaten_Streak, matches.Longest_Unbeaten_Streak
 FROM wc22_groups AS groups
 INNER JOIN wc22_squads AS squads ON groups.Team = squads.Team
-INNER JOIN intl_matches_summary AS matches ON groups.Team = matches.Team
+INNER JOIN intl_matches_summary AS matches ON groups.Team = matches.Team;
 ```
-The result of this step is *[wc22_final_table.csv](https://github.com/bagasadiwaskita/wc-22-analysis/blob/b555da1e5a677eeeaac7f036bc12a24802f7a6a2/Pre-processing/wc22_final_table.csv)*.
+The result of this step is *[wc22_final_table.csv](https://github.com/bagasadiwaskita/wc-22-analysis/blob/f97a4c10ddf353d8b5204dfcc2502a8ba505d369/Pre-processing/wc22_final_table.csv)*.
 
 ## Analysis with Visualization
 
-In this section, I will analyze all the information from *[wc22_final_table.csv](https://github.com/bagasadiwaskita/wc-22-analysis/blob/b555da1e5a677eeeaac7f036bc12a24802f7a6a2/Pre-processing/wc22_final_table.csv)*.
+In this section, I will analyze all the information from *[wc22_final_table.csv](https://github.com/bagasadiwaskita/wc-22-analysis/blob/f97a4c10ddf353d8b5204dfcc2502a8ba505d369/Pre-processing/wc22_final_table.csv)*.
 
 ### 1. Age
 
