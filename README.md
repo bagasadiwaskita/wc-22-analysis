@@ -4,7 +4,7 @@
 <img width=50% height=50% src="https://digitalhub.fifa.com/transform/cc8d9b5b-18a8-4d34-9427-657dd2725e7f/small_icon-wc-selected?io=transform:fill&quality=75">
 </p>
 
-FIFA World Cup Qatar 2022 had completed with Argentina as the champions of the competition. Argentina crowned as the champions after the intense final match against the defending champions, France, which ended in Argentina winning on penalties. Apart from that, there are many other facts to discuss about this year's world cup. On this occasion, I would like to analyze about all participated teams' data leading up to the World Cup 2022 compared to their placement in the competition.
+FIFA World Cup Qatar 2022 had completed with Argentina as the champions of the competition. Argentina crowned as the champions after the intense final match against the defending champions, France, which ended in Argentina winning on penalties. Apart from that, there are many other facts to discuss about this year's world cup. On this occasion, I would like to analyse about all participated teams' data leading up to the World Cup 2022 compared to their placement in the competition.
 
 ## Analysis Plan
 
@@ -14,7 +14,7 @@ The dataset I used for this analysis is from [Maven Analytics](https://www.maven
 
 ## Data Pre-processing
 
-There are many tables in the World Cup Dataset. To make it easier to analyze, I will join all data used for analysis in 1 table. The tool I used on this step is ***MySQL Workspace*** in ***[sqliteonline.com](https://sqliteonline.com/)*** and ***Python*** in ***Jupyter Notebook***.
+There are many tables in the World Cup Dataset. To make it easier to analyse, I will join all data used for analysis in 1 table. The tool I used on this step is ***MySQL Workspace*** in ***[sqliteonline.com](https://sqliteonline.com/)*** and ***Python*** in ***Jupyter Notebook***.
 
 ### 1. FIFA Ranking
 
@@ -28,7 +28,7 @@ The result of this step is *[wc22_groups.csv](https://github.com/bagasadiwaskita
 
 ### 2. Squads
 
-There are a lot of information in team squad's data, such as player's name, position he plays, age, etc. In this step, I will use team's *average of player's age, caps, goals, and goals per caps*.
+There are a lot of information in team squad's data, such as player's name, position he plays, age, etc. In this step, I will get information about team's *average of player's age, caps, goals, and goals per caps*.
 
 Table that contains squads details is *[2022_world_cup_squads.csv](https://github.com/bagasadiwaskita/wc-22-analysis/blob/4ed12b5e4bcb603c9e448a49eaf9221c535e38c0/World%20Cup%20Dataset%20(Original)/2022_world_cup_squads.csv)*. I rename the table into *wc22_squads.csv* to simplify the name. To get the data I needed, I have to create SQL query that show the table of all participated teams with their values of average of age, caps, goals, and goals per caps.
 ```
@@ -40,15 +40,15 @@ SELECT DISTINCT Team,
        ROUND((AVG(Goals) / AVG(Caps)),4) AS Avg_GoalsPerCaps
 FROM wc22_squads GROUP BY Team;
 ```
-The result of this step is *[wc22_squads.csv](https://github.com/bagasadiwaskita/wc-22-analysis/blob/f97a4c10ddf353d8b5204dfcc2502a8ba505d369/Pre-processing/wc22_squads.csv)*.
+The result of this step is *[wc22_squads.csv](https://github.com/bagasadiwaskita/wc-22-analysis/blob/591e4f616557aa0f0ff4bab060a1fe642b2bba57/Pre-processing/wc22_squads.csv)*.
 
 ### 3. Recent International Matches Results
 
-Football match in general is the main showdown of football to show which team is stronger at the moment, so it is impossible to ignore international matches results to look which national team is stronger than the others. That means **recent international matches results is one of the main index of team's strength**.
+Football match in general is the main showdown of football to show which team is stronger at the moment, so it is impossible to ignore international matches results to look which national team is stronger than the others. That means recent international matches results could be a tool to measure football team's strength.
 
 Table that contains international matches details is *[international_matches.csv](https://github.com/bagasadiwaskita/wc-22-analysis/blob/9c26a0324084f72e5264f99c26d22bda97038a14/World%20Cup%20Dataset%20(Original)/international_matches.csv)*. To collect the needed data, I used Python in this step since it would be too difficult if I did it in SQL.
 
-Details about what I do in this step is in *[intl_matches_summary.ipynb](https://github.com/bagasadiwaskita/wc-22-analysis/blob/f97a4c10ddf353d8b5204dfcc2502a8ba505d369/Pre-processing/intl_matches_summary.ipynb)* and the result of this step is *[intl_matches_summary.csv](https://github.com/bagasadiwaskita/wc-22-analysis/blob/f97a4c10ddf353d8b5204dfcc2502a8ba505d369/Pre-processing/intl_matches_summary.csv)*.
+Details about what I do in this step is in *[intl_matches_summary.ipynb](https://github.com/bagasadiwaskita/wc-22-analysis/blob/591e4f616557aa0f0ff4bab060a1fe642b2bba57/Pre-processing/intl_matches_summary.ipynb)* and the result of this step is in *[intl_matches_summary.csv](https://github.com/bagasadiwaskita/wc-22-analysis/blob/591e4f616557aa0f0ff4bab060a1fe642b2bba57/Pre-processing/intl_matches_summary.csv)*.
 
 ### 4. Joining the Table and Show the Data Related to Team Strength
 
@@ -68,11 +68,11 @@ FROM wc22_groups AS groups
 INNER JOIN wc22_squads AS squads ON groups.Team = squads.Team
 INNER JOIN intl_matches_summary AS matches ON groups.Team = matches.Team;
 ```
-The result of this step is *[wc22_final_table.csv](https://github.com/bagasadiwaskita/wc-22-analysis/blob/f97a4c10ddf353d8b5204dfcc2502a8ba505d369/Pre-processing/wc22_final_table.csv)*.
+The result of this step is *[wc22_final_table.csv](https://github.com/bagasadiwaskita/wc-22-analysis/blob/591e4f616557aa0f0ff4bab060a1fe642b2bba57/Pre-processing/wc22_final_table.csv)*.
 
 ## Analysis with Visualization
 
-In this section, I will analyze all the information from *[wc22_final_table.csv](https://github.com/bagasadiwaskita/wc-22-analysis/blob/f97a4c10ddf353d8b5204dfcc2502a8ba505d369/Pre-processing/wc22_final_table.csv)*.
+In this section, I will analyze all the information from *[wc22_final_table.csv](https://github.com/bagasadiwaskita/wc-22-analysis/blob/591e4f616557aa0f0ff4bab060a1fe642b2bba57/Pre-processing/wc22_final_table.csv)*.
 
 ### 1. Age
 
