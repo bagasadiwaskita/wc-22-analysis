@@ -80,8 +80,9 @@ Since FIFA Ranking calculation is based on the game result directly, that means 
 
 Here is the distribution of FIFA Ranking among all World Cup 2022 participant.
 
-| Group Stage | Overall |
-| ![List of World Cup 2022 Participant's FIFA Ranking in Group Stage](https://github.com/bagasadiwaskita/wc22-analysis/blob/ece0133891095d53095774353438768bc4567799/Viz/FIFA%20Ranking%20Group%20Stage.png) | ![List of World Cup 2022 Participant's FIFA Ranking](https://github.com/bagasadiwaskita/wc22-analysis/blob/ece0133891095d53095774353438768bc4567799/Viz/FIFA%20Ranking.png) |
+<p align="center">
+<img src="https://github.com/bagasadiwaskita/wc22-analysis/blob/ece0133891095d53095774353438768bc4567799/Viz/FIFA%20Ranking%20Group%20Stage.png"> | <img src="https://github.com/bagasadiwaskita/wc22-analysis/blob/ece0133891095d53095774353438768bc4567799/Viz/FIFA%20Ranking.png">
+</p>
 
 ### 2. Age
 
