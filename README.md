@@ -18,7 +18,7 @@ There are many tables in the World Cup Dataset. To make it easier to analyse, I 
 
 ### 1. FIFA Ranking
 
-FIFA Ranking (in this context is FIFA Men's World Ranking) is a ranking system by FIFA for men's national teams in association football. The national teams of the men's member nations of FIFA are ranked based on ther game result with the most successful teams being ranked highest.
+FIFA Ranking (in this context is FIFA Men's World Ranking) is a ranking system by FIFA for men's national teams in association football. The national teams of the men's member nations of FIFA are ranked based on their game result with the most successful teams being ranked highest.
 
 Table that contains FIFA Ranking values is *[2022_world_cup_groups.csv](https://github.com/bagasadiwaskita/wc-22-analysis/blob/4ed12b5e4bcb603c9e448a49eaf9221c535e38c0/World%20Cup%20Dataset%20(Original)/2022_world_cup_groups.csv)*. I rename the table into *wc22_groups.csv* to simplify the name. Other than that, no changes needed. I used SQL on this step since it is pretty straghtforward.
 ```
@@ -72,8 +72,16 @@ The result of this step is *[wc22_final_table.csv](https://github.com/bagasadiwa
 
 ## Analysis with Visualization
 
-In this section, I will analyze all the information from *[wc22_final_table.csv](https://github.com/bagasadiwaskita/wc-22-analysis/blob/591e4f616557aa0f0ff4bab060a1fe642b2bba57/Pre-processing/wc22_final_table.csv)*.
+In this section, I will analyze all the information from *[wc22_final_table.csv](https://github.com/bagasadiwaskita/wc-22-analysis/blob/591e4f616557aa0f0ff4bab060a1fe642b2bba57/Pre-processing/wc22_final_table.csv)*. The goal in this step is to determine which aspect that can be used as the main units to measure World Cup 2022 team participants' strength.
 
-### 1. Age
+### 1. FIFA Ranking
+
+Since FIFA Ranking calculation is based on the game result directly, that means FIFA Ranking can determine the strength of the team at the moment. Therefore, **I decided to use FIFA Ranking as one of the main units to measure World Cup 2022 team participants' strength.**
+
+Here is the distribution of FIFA Ranking among all World Cup 2022 participant.
+
+<iframe src="https://public.tableau.com/views/Pre-FIFAWorldCupQatar2022Analysis/FIFARankingGroupStage?:language=en-US&:display_count=n&:origin=viz_share_link" width="800" height="600"></iframe>
+
+### 2. Age
 
 Age sometimes could means something for football players. From common people's point of view, older football players considered not as agile as the younger ones but their experience is definitely a plus point for them. Since there is no clear boundaries to determine which one is better between older or younger football player, **I decided to not consider age as the main index of team strength**. Let's take a look on how is the average of age at all football players participated in the World Cup 2022 grouped by their team.
