@@ -8,7 +8,7 @@ FIFA World Cup Qatar 2022 had completed with Argentina as the champions of the c
 
 ## Analysis Plan
 
-Given historical data leading up to the World Cup 2022, I would like to determine which countries are underperformed or overachieved in the World Cup 2022. To achieve the goals, my analysis focused into data about all participated teams' **FIFA Ranking**, **squads**, and **recent international match results**.
+Given historical data leading up to the World Cup 2022, I would like to determine which countries are underperformed or overachieved in the World Cup 2022. **I determine the underperformed team is a strong condender team in more than half of all the main units to measure World Cup 2022 team participants' strength but ended up losing in the group stage of World Cup 2022. I also determine the overachieved team is a weak condender team in more than half of all the main units to measure World Cup 2022 team participants' strength but reach at least the quarter finals of World Cup 2022.** To achieve the goals, my analysis focused into data about all participated teams' **FIFA Ranking**, **squads**, and **recent international match results**.
 
 The dataset I used for this analysis is from [Maven Analytics](https://www.mavenanalytics.io/data-playground).
 
@@ -72,9 +72,9 @@ The result of this step is *[wc22_final_table.csv](https://github.com/bagasadiwa
 
 ## Analysis with Visualization
 
-In this section, I will analyze all the information from *[wc22_final_table.csv](https://github.com/bagasadiwaskita/wc-22-analysis/blob/591e4f616557aa0f0ff4bab060a1fe642b2bba57/Pre-processing/wc22_final_table.csv)*. The goal in this step is to determine which aspect that can be used as the main units to measure World Cup 2022 team participants' strength.
+In this section, I will analyze all the information from *[wc22_final_table.csv](https://github.com/bagasadiwaskita/wc-22-analysis/blob/591e4f616557aa0f0ff4bab060a1fe642b2bba57/Pre-processing/wc22_final_table.csv)*. The goal in this step is to determine which aspect that can be used as the main units to measure World Cup 2022 team participants' strength. After that, we decide the strong contender and weak contender team based on that aspect.
 
-### 1. FIFA Ranking
+### 1. FIFA Ranking of the Team
 
 Since FIFA Ranking calculation is based on the game result directly, that means FIFA Ranking can determine the strength of the team at the moment. Therefore, **I decided to use FIFA Ranking as one of the main units to measure World Cup 2022 team participants' strength.**
 
@@ -84,6 +84,34 @@ Here is the distribution of FIFA Ranking among all World Cup 2022 participant.
 <img src="https://github.com/bagasadiwaskita/wc22-analysis/blob/ece0133891095d53095774353438768bc4567799/Viz/FIFA%20Ranking%20Group%20Stage.png"> | <img src="https://github.com/bagasadiwaskita/wc22-analysis/blob/ece0133891095d53095774353438768bc4567799/Viz/FIFA%20Ranking.png">
 </p>
 
-### 2. Age
+From the pictures above, we could expect that the top 2 in each group would make it into knockout stage. We also could expect that higher ranked teams would likely get a higher placement in the World Cup 2022.
 
-Age sometimes could means something for football players. From common people's point of view, older football players considered not as agile as the younger ones but their experience is definitely a plus point for them. Since there is no clear boundaries to determine which one is better between older or younger football player, **I decided to not consider age as the main index of team strength**. Let's take a look on how is the average of age at all football players participated in the World Cup 2022 grouped by their team.
+Therefore, **I decide that the criteria of strong contender team based on FIFA Ranking is they are on top of their group or top 8 overall. I also decide that the criteria of weak contender team based on FIFA Ranking is they are on bottom of their group or bottom 8 overall.**
+
+### 2. Average Age of Football Players Each Team
+
+Age sometimes could means something for football players. From common people's point of view, older football players considered not as agile as the younger ones but their experience is definitely a plus point for them. Since there is no clear boundaries to determine which one is better between older or younger football player, **I decided to NOT use age distribution as one of the main units to measure World Cup 2022 team participants' strength.**
+
+Let's take a look on how is the average of age at all football players participated in the World Cup 2022 grouped by their team.
+
+<p align="center">
+<img src="https://github.com/bagasadiwaskita/wc22-analysis/blob/ece0133891095d53095774353438768bc4567799/Viz/Average%20Age.png">
+</p>
+
+From the chart above, we could see that Ghana, United States, Ecuador, and Spain bring many young football players. We could also see that Iran, Mexico, Tunisia, and Argentina bring many old football players.
+
+### 3. Average Caps of Football Players Each Team
+
+### 4. Average Goals of Football Players Each Team
+
+### 5. Average Goals per Aevrage Caps of the Team
+
+### 6. Team's Win Rate of International Matches in 4 Years
+
+### 7. Team's Goal Scored per International Matches in 4 Years
+
+### 8. Team's Goal Conceded per International Matches in 4 Years
+
+### 9. Team's Win Streak on International Matches in 4 Years
+
+### 10. Team's Unbeaten Streak on International Matches in 4 Years
