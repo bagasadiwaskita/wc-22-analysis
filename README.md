@@ -102,11 +102,65 @@ From the chart above, we could see that Ghana, United States, Ecuador, and Spain
 
 ### 3. Average Caps of Football Players Each Team
 
+In sports including football, a cap is a player's appeareance in a game in international level. It means football players' cap represent the number of time a player has played for their country in an international level. It could be said that players with higher caps is more experienced that the lower ones in terms of international level matches. But high number of caps does not mean the player is good, since it only shows the number of appeareance in a match, not the performances. Since there is not much information we can take only from number of caps in terms of performances, **I decided to NOT use caps distribution as one of the main units to measure World Cup 2022 team participants' strength.**
+
+Let's take a look on how is the average of caps at all football players participated in the World Cup 2022 grouped by their team.
+
+<p align="center">
+<img src="https://github.com/bagasadiwaskita/wc22-analysis/blob/ece0133891095d53095774353438768bc4567799/Viz/Average%20Caps.png">
+</p>
+
+From the chart above, we could see that Qatar, Belgium, Mexico, and Uruguay bring many football players with high number of caps. We could also see that Ghana, Morocco, Australia, and Cameroon bring many football players with low number of caps.
+
 ### 4. Average Goals of Football Players Each Team
 
-### 5. Average Goals per Aevrage Caps of the Team
+It could be said that a player with higher goals performs better that the lower one. But we could not judge player's performances only from number of goals. If a player scores many goal but he plays a lot of matches with low rate of goals per match, then we couldn't consider him a good player. Since there is not much information we can take only from number of goals, **I decided to NOT use goals distribution as one of the main units to measure World Cup 2022 team participants' strength.**
+
+Let's take a look on how is the average of goals at all football players participated in the World Cup 2022 grouped by their team.
+
+<p align="center">
+<img src="https://github.com/bagasadiwaskita/wc22-analysis/blob/ece0133891095d53095774353438768bc4567799/Viz/Average%20Goals.png">
+</p>
+
+From the chart above, we could see that Belgium, Qatar, Portugal, and France bring many football players with high number of goals. We could also see that Ghana, Saudi Arabia, Morocco, and Australia bring many football players with low number of goals.
+
+### 5. Average Goals per Average Caps of the Team
+
+As I said before, we could not take only from caps and goals separately to measure the team's strength. However, if we make a ratio between number of goals and number of caps, it could be a good measurement since it could shows both appeareance and performance.
+
+From that idea, I decided to create a ratio between average number of goals and number of caps in a team. Therefore, **I decided to use average goals per average caps distribution as one of the main units to measure World Cup 2022 team participants' strength.**
+
+Here is the distribution of average goals per average caps among all World Cup 2022 team participant.
+
+<p align="center">
+<img src="https://github.com/bagasadiwaskita/wc22-analysis/blob/ece0133891095d53095774353438768bc4567799/Viz/Average%20Goals%20per%20Average%20Caps%20Group%20Stage.png">
+</p>
+
+<p align="center">
+<img src="https://github.com/bagasadiwaskita/wc22-analysis/blob/ece0133891095d53095774353438768bc4567799/Viz/Average%20Goals%20per%20Average%20Caps.png">
+</p>
+
+From the charts above, we could expect that the top 2 in each group would make it into knockout stage. We also could expect that higher ranked teams would likely get a higher placement in the World Cup 2022.
+
+Therefore, **I decide that the criteria of strong contender team based on average goals per average caps is they are on top of their group or top 8 overall. I also decide that the criteria of weak contender team based on average goals per average caps is they are on bottom of their group or bottom 8 overall.**
 
 ### 6. Team's Win Rate of International Matches in 4 Years
+
+A football team's win rate is a good measurement to determine how good the performance of the team compared to the others. Therefore, **I decided to use win rate distribution as one of the main units to measure World Cup 2022 team participants' strength.**
+
+Here is the distribution of win rate among all World Cup 2022 team participant on international matches in 4 years.
+
+<p align="center">
+<img src="https://github.com/bagasadiwaskita/wc22-analysis/blob/ece0133891095d53095774353438768bc4567799/Viz/Win%20Rate%20Group%20Stage.png">
+</p>
+
+<p align="center">
+<img src="https://github.com/bagasadiwaskita/wc22-analysis/blob/ece0133891095d53095774353438768bc4567799/Viz/Win%20Rate.png">
+</p>
+
+From the charts above, we could expect that the top 2 in each group would make it into knockout stage. We also could expect that higher ranked teams would likely get a higher placement in the World Cup 2022.
+
+Therefore, **I decide that the criteria of strong contender team based on their win rate of international matches in 4 years is they are on top of their group or top 8 overall. I also decide that the criteria of weak contender team based on their win rate of international matches in 4 years is they are on bottom of their group or bottom 8 overall.**
 
 ### 7. Team's Goal Scored per International Matches in 4 Years
 
