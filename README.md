@@ -102,6 +102,16 @@ From the chart above, we could see that Ghana, United States, Ecuador, and Spain
 
 ### 3. Average Caps of Football Players Each Team
 
+In sports including football, a cap is a player's appeareance in a game in international level. It means football players' cap represent the number of time a player has played for their country in an international level. It could be said that players with higher caps is more experienced that the lower ones. But high number of caps does not mean the player is good, since it only shows the number of appeareance in a match, not the performances. Since there is not much information we can take only from number of caps in terms of performances, **I decided to NOT use caps distribution as one of the main units to measure World Cup 2022 team participants' strength.**
+
+Let's take a look on how is the average of caps at all football players participated in the World Cup 2022 grouped by their team.
+
+<p align="center">
+<img src="https://github.com/bagasadiwaskita/wc22-analysis/blob/ece0133891095d53095774353438768bc4567799/Viz/Average%20Caps.png">
+</p>
+
+From the chart above, we could see that Qatar, Belgium, Mexico, and Uruguay bring many football players with high number of caps. We could also see that Ghana, Morocco, Australia, and Cameroon bring many football players with low number of caps.
+
 ### 4. Average Goals of Football Players Each Team
 
 ### 5. Average Goals per Aevrage Caps of the Team
