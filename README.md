@@ -140,7 +140,7 @@ Here is the distribution of average goals per average caps among all World Cup 2
 <img src="https://github.com/bagasadiwaskita/wc22-analysis/blob/ece0133891095d53095774353438768bc4567799/Viz/Average%20Goals%20per%20Average%20Caps.png">
 </p>
 
-From the charts above, we could expect that the top 2 in each group would make it into knockout stage. We also could expect that higher ranked teams would likely get a higher placement in the World Cup 2022.
+From the charts above, we could expect that the top 2 in each group would make it into knockout stage. We also could expect that teams with higher average goals per average caps would likely get a higher placement in the World Cup 2022.
 
 Therefore, **I decide that the criteria of strong contender team based on average goals per average caps is they are on top of their group or top 8 overall. I also decide that the criteria of weak contender team based on average goals per average caps is they are on bottom of their group or bottom 8 overall.**
 
@@ -158,14 +158,108 @@ Here is the distribution of win rate among all World Cup 2022 team participant o
 <img src="https://github.com/bagasadiwaskita/wc22-analysis/blob/ece0133891095d53095774353438768bc4567799/Viz/Win%20Rate.png">
 </p>
 
-From the charts above, we could expect that the top 2 in each group would make it into knockout stage. We also could expect that higher ranked teams would likely get a higher placement in the World Cup 2022.
+From the charts above, we could expect that the top 2 in each group would make it into knockout stage. We also could expect that teams with higher win rate would likely get a higher placement in the World Cup 2022.
 
 Therefore, **I decide that the criteria of strong contender team based on their win rate of international matches in 4 years is they are on top of their group or top 8 overall. I also decide that the criteria of weak contender team based on their win rate of international matches in 4 years is they are on bottom of their group or bottom 8 overall.**
 
 ### 7. Team's Goal Scored per International Matches in 4 Years
 
+The winning condition of football match is when a team scoring the ball into the opposing team's goal more that the opponent. From goal scored stats, we could take information about the team's offensive capabilities to score goals into their opponent. Therefore, **I decided to use goal scored per match distribution as one of the main units to measure World Cup 2022 team participants' strength.**
+
+Here is the distribution of goal scored per international match in 4 years among all World Cup 2022 team participant.
+
+<p align="center">
+<img src="https://github.com/bagasadiwaskita/wc22-analysis/blob/ece0133891095d53095774353438768bc4567799/Viz/Goals%20Scored%20per%20Match%20Group%20Stage.png">
+</p>
+
+<p align="center">
+<img src="https://github.com/bagasadiwaskita/wc22-analysis/blob/ece0133891095d53095774353438768bc4567799/Viz/Goals%20Scored%20per%20Match.png">
+</p>
+
+From the charts above, we could expect that the top 2 in each group would make it into knockout stage. We also could expect that teams with higher goal scored stats would likely get a higher placement in the World Cup 2022.
+
+Therefore, **I decide that the criteria of strong contender team based on their goal scored per international match in 4 years is they are on top of their group or top 8 overall. I also decide that the criteria of weak contender team based on their goal scored per international match in 4 years is they are on bottom of their group or bottom 8 overall.**
+
 ### 8. Team's Goal Conceded per International Matches in 4 Years
+
+Similar to goal scored stats, we could take information about the team's defensive capabilities to prevent the opposing team to score goals into their goal from goal conceded stats. Therefore, **I decided to use goal conceded per match distribution as one of the main units to measure World Cup 2022 team participants' strength.**
+
+Here is the distribution of goal conceded per international match in 4 years among all World Cup 2022 team participant.
+
+<p align="center">
+<img src="https://github.com/bagasadiwaskita/wc22-analysis/blob/ece0133891095d53095774353438768bc4567799/Viz/Goals%20Conceded%20per%20Match%20Group%20Stage.png">
+</p>
+
+<p align="center">
+<img src="https://github.com/bagasadiwaskita/wc22-analysis/blob/ece0133891095d53095774353438768bc4567799/Viz/Goals%20Conceded%20per%20Match.png">
+</p>
+
+From the charts above, we could expect that the bottom 2 in each group would make it into knockout stage. We also could expect that teams with lower goal conceded stats would likely get a higher placement in the World Cup 2022.
+
+Therefore, **I decide that the criteria of strong contender team based on their goal conceded per international match in 4 years is they are on bottom of their group or bottom 8 overall. I also decide that the criteria of weak contender team based on their goal conceded per international match in 4 years is they are on top of their group or top 8 overall.**
 
 ### 9. Team's Win Streak on International Matches in 4 Years
 
+A team's win streak is the number of match that a team is winning football matches in sequence. The win streak stats could be described the team has positive trend before the World Cup 2022 starts. Therefore, **I decided to use win streak distribution as one of the main units to measure World Cup 2022 team participants' strength.**
+
+Here is the distribution of win streak on international matches in 4 years among all World Cup 2022 team participant.
+
+<p align="center">
+<img src="https://github.com/bagasadiwaskita/wc22-analysis/blob/80c189ab862360b782ebc2967c18e6b183ed7e33/Viz/Win%20Streak%20Group%20Stage.png">
+</p>
+
+<p align="center">
+<img src="https://github.com/bagasadiwaskita/wc22-analysis/blob/80c189ab862360b782ebc2967c18e6b183ed7e33/Viz/Win%20Streak%20Group%20Stage-2.png">
+</p>
+
+<p align="center">
+<img src="https://github.com/bagasadiwaskita/wc22-analysis/blob/80c189ab862360b782ebc2967c18e6b183ed7e33/Viz/Win%20Streak.png">
+</p>
+
+<p align="center">
+<img src="https://github.com/bagasadiwaskita/wc22-analysis/blob/80c189ab862360b782ebc2967c18e6b183ed7e33/Viz/Win%20Streak-2.png">
+</p>
+
+From the charts above, we could expect that the top 2 in each group would make it into knockout stage. We also could expect that teams with higher number of win streak would likely get a higher placement in the World Cup 2022.
+
+Therefore, I create **the rules to decide the strong contender teams and weak contender teams based on win streak** according to the chart.
+
+- For longest win streak stats,
+  * team are considered as strong contender team when they are on top of their group or top 8 overall. If there are 2 or more teams in the top of a group         share the same number of longest win streak, team with higher current win streak are considered as strong contender team. If the tie is still on, all of     them are considered as strong contender team.
+  * team are considered as weak contender team when they are on bottom of their group or bottom 8 overall. If there are 2 or more teams in the bottom of a       group share the same number of longest win streak, team with lower current win streak are considered as weak contender team. If the tie is still on, all     of them are considered as weak contender team.
+
+- For current win streak stats,
+  * a team is considered as strong contender team when they are on top of their group or have at least 2 matches in current win streak. If there are 2 or         more teams in the top of a group share the same number of current win streak and it is not zero, team with higher longest win streak are considered as       strong contender team. If the tie is still on, all of them are considered as strong contender team. If all teams in a group share the same number of         current win streak and it is zero, none of them are considered as strong contender team.
+
 ### 10. Team's Unbeaten Streak on International Matches in 4 Years
+
+A team's unbeaten streak is the number of match that a team is not losing football matches in sequence. Similar to win streak stats, the unbeaten streak stats could be described the team has positive trend before the World Cup 2022 starts. Therefore, **I decided to use unbeaten streak distribution as one of the main units to measure World Cup 2022 team participants' strength.**
+
+Here is the distribution of unbeaten streak on international matches in 4 years among all World Cup 2022 team participant.
+
+<p align="center">
+<img src="https://github.com/bagasadiwaskita/wc22-analysis/blob/80c189ab862360b782ebc2967c18e6b183ed7e33/Viz/Unbeaten%20Streak%20Group%20Stage.png">
+</p>
+
+<p align="center">
+<img src="https://github.com/bagasadiwaskita/wc22-analysis/blob/80c189ab862360b782ebc2967c18e6b183ed7e33/Viz/Unbeaten%20Streak%20Group%20Stage-2.png">
+</p>
+
+<p align="center">
+<img src="https://github.com/bagasadiwaskita/wc22-analysis/blob/80c189ab862360b782ebc2967c18e6b183ed7e33/Viz/Unbeaten%20Streak.png">
+</p>
+
+<p align="center">
+<img src="https://github.com/bagasadiwaskita/wc22-analysis/blob/80c189ab862360b782ebc2967c18e6b183ed7e33/Viz/Unbeaten%20Streak-2.png">
+</p>
+
+From the charts above, we could expect that the top 2 in each group would make it into knockout stage. We also could expect that teams with higher number of unbeaten streak would likely get a higher placement in the World Cup 2022.
+
+Therefore, I create **the rules to decide the strong contender teams and weak contender teams based on unbeaten streak** according to the charts.
+
+- For longest unbeaten streak stats,
+  * team are considered as strong contender team when they are on top of their group or top 8 overall. If there are 2 or more teams in the top of a group         share the same number of longest unbeaten streak, team with higher current unbeaten streak are considered as strong contender team. If the tie is still       on, all of them are considered as strong contender team.
+  * team are considered as weak contender team when they are on bottom of their group or bottom 7 overall. If there are 2 or more teams in the bottom of a       group share the same number of longest unbeaten streak, team with lower current unbeaten streak are considered as weak contender team. If the tie is         still on, all of them are considered as weak contender team.
+
+- For current win streak stats,
+  * a team is considered as strong contender team when they are on top of their group or have at least 2 matches in current win streak. If there are 2 or         more teams in the top of a group share the same number of current win streak and it is not zero, team with higher longest win streak are considered as       strong contender team. If the tie is still on, all of them are considered as strong contender team. If all teams in a group share the same number of         current win streak and it is zero, none of them are considered as strong contender team.
