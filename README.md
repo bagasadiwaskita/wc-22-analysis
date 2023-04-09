@@ -14,23 +14,23 @@ The dataset I used for this analysis is from [Maven Analytics](https://www.maven
 
 ## Data Pre-processing
 
-There are many tables in the World Cup Dataset. To make it easier to analyse, I will join all data used for analysis in 1 table. The tool I used on this step is ***MySQL Workspace*** in ***[sqliteonline.com](https://sqliteonline.com/)*** and ***Python*** in ***Jupyter Notebook***.
+There are many tables in the World Cup Dataset. To make it easier to analyse, I will join all data used for analysis in 1 table. The tool I used on this step is ***MySQL/MariaDB Workspace*** in ***[sqliteonline.com](https://sqliteonline.com/)*** and ***Python*** in ***Jupyter Notebook***.
 
 ### 1. FIFA Ranking
 
 FIFA Ranking (in this context is FIFA Men's World Ranking) is a ranking system by FIFA for men's national teams in association football. The national teams of the men's member nations of FIFA are ranked based on their game result with the most successful teams being ranked highest.
 
-Table that contains FIFA Ranking values is *[2022_world_cup_groups.csv](https://github.com/bagasadiwaskita/wc-22-analysis/blob/4ed12b5e4bcb603c9e448a49eaf9221c535e38c0/World%20Cup%20Dataset%20(Original)/2022_world_cup_groups.csv)*. I rename the table into *wc22_groups.csv* to simplify the name. Other than that, no changes needed. I used SQL on this step since it is pretty straghtforward.
+Table that contains FIFA Ranking values is *[2022_world_cup_groups.csv](https://github.com/bagasadiwaskita/wc22-analysis/blob/46eab7adc5e68c4a98e893f536a474111199b30c/World%20Cup%20Dataset%20(Original)/2022_world_cup_groups.csv)*. I rename the table into *wc22_groups.csv* to simplify the name. Other than that, no changes needed. I used SQL on this step.
 ```
 SELECT * FROM wc22_groups;
 ```
-The result of this step is *[wc22_groups.csv](https://github.com/bagasadiwaskita/wc-22-analysis/blob/ffdc2b1032c40c2deb6c66c9c13b6ec0f2418ee0/Pre-processing/wc22_groups.csv)*.
+The result of this step is *[wc22_groups.csv](https://github.com/bagasadiwaskita/wc22-analysis/blob/46eab7adc5e68c4a98e893f536a474111199b30c/Pre-processing/wc22_groups.csv)*.
 
 ### 2. Squads
 
 There are a lot of information in team squad's data, such as player's name, position he plays, age, etc. In this step, I will get information about team's *average of player's age, caps, goals, and goals per caps*.
 
-Table that contains squads details is *[2022_world_cup_squads.csv](https://github.com/bagasadiwaskita/wc-22-analysis/blob/4ed12b5e4bcb603c9e448a49eaf9221c535e38c0/World%20Cup%20Dataset%20(Original)/2022_world_cup_squads.csv)*. I rename the table into *wc22_squads.csv* to simplify the name. To get the data I needed, I have to create SQL query that show the table of all participated teams with their values of average of age, caps, goals, and goals per caps.
+Table that contains squads details is *[2022_world_cup_squads.csv](https://github.com/bagasadiwaskita/wc22-analysis/blob/46eab7adc5e68c4a98e893f536a474111199b30c/World%20Cup%20Dataset%20(Original)/2022_world_cup_squads.csv)*. I rename the table into *wc22_squads.csv* to simplify the name. To get the data I needed, I have to create SQL query that show the table of all participated teams with their values of average of age, caps, goals, and goals per caps.
 ```
 -- I will use round 4 decimal
 SELECT DISTINCT Team,
@@ -40,15 +40,15 @@ SELECT DISTINCT Team,
        ROUND((AVG(Goals) / AVG(Caps)),4) AS Avg_GoalsPerCaps
 FROM wc22_squads GROUP BY Team;
 ```
-The result of this step is *[wc22_squads.csv](https://github.com/bagasadiwaskita/wc-22-analysis/blob/591e4f616557aa0f0ff4bab060a1fe642b2bba57/Pre-processing/wc22_squads.csv)*.
+The result of this step is *[wc22_squads.csv](https://github.com/bagasadiwaskita/wc22-analysis/blob/46eab7adc5e68c4a98e893f536a474111199b30c/Pre-processing/wc22_squads.csv)*.
 
 ### 3. Recent International Matches Results
 
 Football match in general is the main showdown of football to show which team is stronger at the moment, so it is impossible to ignore international matches results to look which national team is stronger than the others. That means recent international matches results could be a tool to measure football team's strength.
 
-Table that contains international matches details is *[international_matches.csv](https://github.com/bagasadiwaskita/wc-22-analysis/blob/9c26a0324084f72e5264f99c26d22bda97038a14/World%20Cup%20Dataset%20(Original)/international_matches.csv)*. To collect the needed data, I used Python in this step since it would be too difficult if I did it in SQL.
+Table that contains international matches details is *[international_matches.csv](https://github.com/bagasadiwaskita/wc22-analysis/blob/46eab7adc5e68c4a98e893f536a474111199b30c/World%20Cup%20Dataset%20(Original)/international_matches.csv)*. To collect the needed data, I used Python in this step since it would be too difficult if I did it in SQL.
 
-Details about what I do in this step is in *[intl_matches_summary.ipynb](https://github.com/bagasadiwaskita/wc-22-analysis/blob/591e4f616557aa0f0ff4bab060a1fe642b2bba57/Pre-processing/intl_matches_summary.ipynb)* and the result of this step is in *[intl_matches_summary.csv](https://github.com/bagasadiwaskita/wc-22-analysis/blob/591e4f616557aa0f0ff4bab060a1fe642b2bba57/Pre-processing/intl_matches_summary.csv)*.
+Details about what I do in this step is in *[intl_matches_summary.ipynb](https://github.com/bagasadiwaskita/wc22-analysis/blob/46eab7adc5e68c4a98e893f536a474111199b30c/Pre-processing/intl_matches_summary.ipynb)* and the result of this step is in *[intl_matches_summary.csv](https://github.com/bagasadiwaskita/wc22-analysis/blob/46eab7adc5e68c4a98e893f536a474111199b30c/Pre-processing/intl_matches_summary.csv)*.
 
 ### 4. Joining the Table and Show the Data Related to Team Strength
 
@@ -57,22 +57,24 @@ Since the needed data is already collected, I have to create SQL query that:
 1. join all 3 tables I've got before,
 2. show the data related to team strength.
 
-I decided that I would show **the group, team name, FIFA Ranking, team's average of age, goals, caps, goals per caps, recent matches' goals scored per match, goals conceded per match, win rate, win streak, and unbeaten streak**.
+I decided that I would show **the group, team name, FIFA Ranking, team's average of age, goals, caps, goals per caps, recent matches' goals scored per match, goals conceded per match, win rate, win streak, unbeaten streak, winless streak, and lose streak**.
 ```
 SELECT groups.Group, groups.Team, groups.FIFA_Ranking,
        squads.Avg_Age, squads.Avg_Caps, squads.Avg_Goals, squads.Avg_GoalsPerCaps,
        matches.Win_Rate_Percentage, matches.Goals_Scored_per_Match,
        matches.Goals_Conceded_per_Match, matches.Current_Win_Streak, matches.Longest_Win_Streak,
-       matches.Current_Unbeaten_Streak, matches.Longest_Unbeaten_Streak
+       matches.Current_Unbeaten_Streak, matches.Longest_Unbeaten_Streak,
+       matches.Current_Winless_Streak, matches.Longest_Winless_Streak, matches.Current_Lose_Streak,
+       matches.Longest_Lose_Streak
 FROM wc22_groups AS groups
 INNER JOIN wc22_squads AS squads ON groups.Team = squads.Team
 INNER JOIN intl_matches_summary AS matches ON groups.Team = matches.Team;
 ```
-The result of this step is *[wc22_final_table.csv](https://github.com/bagasadiwaskita/wc-22-analysis/blob/591e4f616557aa0f0ff4bab060a1fe642b2bba57/Pre-processing/wc22_final_table.csv)*.
+The result of this step is *[wc22_final_table.csv](https://github.com/bagasadiwaskita/wc22-analysis/blob/46eab7adc5e68c4a98e893f536a474111199b30c/Pre-processing/wc22_final_table.csv)*.
 
 ## Analysis with Visualization
 
-In this section, I will analyze all the information from *[wc22_final_table.csv](https://github.com/bagasadiwaskita/wc-22-analysis/blob/591e4f616557aa0f0ff4bab060a1fe642b2bba57/Pre-processing/wc22_final_table.csv)*. The goal in this step is to determine which aspect that can be used as the main units to measure World Cup 2022 team participants' strength. After that, we decide the strong contender and weak contender team based on that aspect.
+In this section, I will analyze all the information from *[wc22_final_table.csv](https://github.com/bagasadiwaskita/wc22-analysis/blob/46eab7adc5e68c4a98e893f536a474111199b30c/Pre-processing/wc22_final_table.csv)*. The goal in this step is to determine which aspect that can be used as the main units to measure World Cup 2022 team participants' strength. After that, we decide the strong contender and weak contender team based on that aspect.
 
 ### 1. FIFA Ranking of the Team
 
