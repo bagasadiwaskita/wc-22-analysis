@@ -202,7 +202,7 @@ Therefore, **I decide that the criteria of strong contender team based on their 
 
 ### 9. Team's Win Streak on International Matches in 4 Years
 
-A team's win streak is the number of match that a team is winning football matches in sequence. The win streak stats could be described the team has positive trend before the World Cup 2022 starts. Therefore, **I decided to use win streak distribution as one of the main units to measure World Cup 2022 team participants' strength.**
+A team's win streak is the number of match that a team is winning football matches in sequence. The win streak stats could describe that the team has positive trend before the World Cup 2022 starts. Therefore, **I decided to use win streak distribution as one of the main units to measure World Cup 2022 team participants' strength.**
 
 Here is the distribution of win streak on international matches in 4 years among all World Cup 2022 team participant.
 
@@ -227,14 +227,14 @@ From the charts above, we could expect that the top 2 in each group would make i
 Therefore, I create **the rules to decide the strong contender teams based on win streak** according to the charts.
 
 - For longest win streak stats,
-  * a team is considered as strong contender team when it is on top of their group or top 8 overall. If there are 2 or more teams in the top of a group share     the same number of longest win streak, team with higher current win streak is considered as strong contender team. If the tie is still on, the tied teams     are considered as strong contender team.
+  * a team is considered as strong contender team when it is on top of their group or has at least 9 matches in longest win streak. If there are 2 or more       teams in the top of a group share the same number of longest win streak, team with higher current win streak is considered as strong contender team. If       the tie is still on, the tied teams are considered as strong contender team.
 
 - For current win streak stats,
   * a team is considered as strong contender team when it is on top of their group or has at least 2 matches in current win streak. If there are 2 or more       teams in the top of a group share the same number of current win streak and it is not zero, team with higher longest win streak is considered as strong       contender team. If the tie is still on, the tied teams are considered as strong contender team. If all teams in a group share the same number of current     win streak and it is zero, none of them are considered as strong contender team.
 
 ### 10. Team's Unbeaten Streak on International Matches in 4 Years
 
-A team's unbeaten streak is the number of match that a team is not losing football matches in sequence. Similar to win streak stats, the unbeaten streak stats could be described the team has positive trend before the World Cup 2022 starts. Therefore, **I decided to use unbeaten streak distribution as one of the main units to measure World Cup 2022 team participants' strength.**
+A team's unbeaten streak is the number of match that a team is not losing football matches in sequence. Similar to win streak stats, the unbeaten streak stats could describe that the team has positive trend before the World Cup 2022 starts. Therefore, **I decided to use unbeaten streak distribution as one of the main units to measure World Cup 2022 team participants' strength.**
 
 Here is the distribution of unbeaten streak on international matches in 4 years among all World Cup 2022 team participant.
 
@@ -259,7 +259,81 @@ From the charts above, we could expect that the top 2 in each group would make i
 Therefore, I create **the rules to decide the strong contender teams based on unbeaten streak** according to the charts.
 
 - For longest unbeaten streak stats,
-  * a team is considered as strong contender team when it is on top of their group or top 8 overall. If there are 2 or more teams in the top of a group share     the same number of longest unbeaten streak, team with higher current unbeaten streak is considered as strong contender team. If the tie is still on, the     tied teams are considered as strong contender team.
+  * a team is considered as strong contender team when it is on top of their group or has at least 14 matches in longest unbeaten streak. If there are 2 or       more teams in the top of a group share the same number of longest unbeaten streak, team with higher current unbeaten streak is considered as strong           contender team. If the tie is still on, the tied teams are considered as strong contender team.
 
 - For current unbeaten streak stats,
   * a team is considered as strong contender team when it is on top of their group or has at least 5 matches in current unbeaten streak. If there are 2 or       more teams in the top of a group share the same number of current unbeaten streak and it is not zero, team with higher longest unbeaten streak is             considered as strong contender team. If the tie is still on, the tied teams are considered as strong contender team. If all teams in a group share the       same number of current unbeaten streak and it is zero, none of them are considered as strong contender team.
+
+### 11. Team's Winless Streak on International Matches in 4 Years
+
+When it comes to a trend, if there is a positive trend, then there is a negative trend too. The first negative trend we analysed is winless streak. A team's winless streak is the number of match that a team is not winning football matches in sequence. The winless streak stats could describe that the team has negative trend before the World Cup 2022 starts. Therefore, **I decided to use winless streak distribution as one of the main units to measure World Cup 2022 team participants' strength.**
+
+Here is the distribution of winless streak on international matches in 4 years among all World Cup 2022 team participant.
+
+<p align="center">
+<img src="https://github.com/bagasadiwaskita/wc22-analysis/blob/4306c8e083c8ec40f828fa47d4575ec0bc8575ae/Viz/Winless%20Streak%20Group%20Stage.png">
+</p>
+
+<p align="center">
+<img src="https://github.com/bagasadiwaskita/wc22-analysis/blob/4306c8e083c8ec40f828fa47d4575ec0bc8575ae/Viz/Winless%20Streak%20Group%20Stage-2.png">
+</p>
+
+<p align="center">
+<img src="https://github.com/bagasadiwaskita/wc22-analysis/blob/4306c8e083c8ec40f828fa47d4575ec0bc8575ae/Viz/Winless%20Streak.png">
+</p>
+
+<p align="center">
+<img src="https://github.com/bagasadiwaskita/wc22-analysis/blob/4306c8e083c8ec40f828fa47d4575ec0bc8575ae/Viz/Winless%20Streak-2.png">
+</p>
+
+From the charts above, we could expect that the bottom 2 in each group would make it into knockout stage. We also could expect that teams with lower number of winless streak would likely get a higher placement in the World Cup 2022.
+
+Therefore, I create **the rules to decide the weak contender teams based on winless streak** according to the charts.
+
+- For longest winless streak stats,
+  * a team is considered as weak contender team when it is on top of their group or has at least 6 matches in longest winless streak. If there are 2 or more     teams in the top of a group share the same number of longest winless streak, team with higher current winless streak is considered as weak contender         team. If the tie is still on, the tied teams are considered as weak contender team.
+
+- For current winless streak stats,
+  * a team is considered as weak contender team when it is on top of their group or has at least 2 matches in current winless streak. If there are 2 or more     teams in the top of a group share the same number of current winless streak and it is not zero, team with higher longest winless streak is considered as     weak contender team. If the tie is still on, the tied teams are considered as weak contender team. If all teams in a group share the same number of           current winless streak and it is zero, none of them are considered as weak contender team.
+
+### 12. Team's Lose Streak on International Matches in 4 Years
+
+A team's lose streak is the number of match that a team is losing football matches in sequence. Similar to winless streak stats, the lose streak stats could describe that the team has negative trend before the World Cup 2022 starts. Therefore, **I decided to use lose streak distribution as one of the main units to measure World Cup 2022 team participants' strength.**
+
+Here is the distribution of lose streak on international matches in 4 years among all World Cup 2022 team participant.
+
+<p align="center">
+<img src="https://github.com/bagasadiwaskita/wc22-analysis/blob/4306c8e083c8ec40f828fa47d4575ec0bc8575ae/Viz/Lose%20Streak%20Group%20Stage.png">
+</p>
+
+<p align="center">
+<img src="https://github.com/bagasadiwaskita/wc22-analysis/blob/4306c8e083c8ec40f828fa47d4575ec0bc8575ae/Viz/Lose%20Streak%20Group%20Stage-2.png">
+</p>
+
+<p align="center">
+<img src="https://github.com/bagasadiwaskita/wc22-analysis/blob/4306c8e083c8ec40f828fa47d4575ec0bc8575ae/Viz/Lose%20Streak.png">
+</p>
+
+<p align="center">
+<img src="https://github.com/bagasadiwaskita/wc22-analysis/blob/4306c8e083c8ec40f828fa47d4575ec0bc8575ae/Viz/Lose%20Streak-2.png">
+</p>
+
+From the charts above, we could expect that the bottom 2 in each group would make it into knockout stage. We also could expect that teams with lower number of lose streak would likely get a higher placement in the World Cup 2022.
+
+Therefore, I create **the rules to decide the weak contender teams based on lose streak** according to the charts.
+
+- For longest lose streak stats,
+  * a team is considered as weak contender team when it is on top of their group or has at least 4 matches in longest lose streak. If there are 2 or more         teams in the top of a group share the same number of longest lose streak, team with higher current lose streak is considered as weak contender team. If       the tie is still on, the tied teams are considered as weak contender team.
+
+- For current lose streak stats,
+  * a team is considered as weak contender team when it is on top of their group or has at least 1 match in current lose streak. If there are 2 or more teams     in the top of a group share the same number of current lose streak and it is not zero, team with higher longest lose streak is considered as weak             contender team. If the tie is still on, the tied teams are considered as weak contender team. If all teams in a group share the same number of current       lose streak and it is zero, none of them are considered as weak contender team.
+
+## Interpretation: Determine the Underperform and Overachieved Team
+
+In this section, I will determine which team is considered as underperform or overachieved in the World Cup 2022.
+
+As I explain in the analysis plan section, I determine the underperformed team is a strong condender team in more than half of all the main units to measure World Cup 2022 team participants' strength but ended up losing in the group stage of World Cup 2022. I also determine the overachieved team is a weak condender team in more than half of all the main units to measure World Cup 2022 team participants' strength but reach at least the quarter finals of World Cup 2022.
+
+From the analysis section, we got 9 categories to consider both strong contender team and weak contender team. **That means, the underperformed team is a strong condender team in at least 5 main units to measure World Cup 2022 team participants' strength but ended up losing in the group stage of World Cup 2022. Furthermore, the overachieved team is a weak condender team in at least 5 main units to measure World Cup 2022 team participants' strength but reach at least the quarter finals of World Cup 2022.**
+
+From the analysis section, the team that considered strong contender team in at least 5 main units are 
