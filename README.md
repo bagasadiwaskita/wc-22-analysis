@@ -97,7 +97,7 @@ Age sometimes could means something for football players. From common people's p
 Let's take a look on how is the average of age at all football players participated in the World Cup 2022 grouped by their team.
 
 <p align="center">
-<img width=50% height=50% src="https://github.com/bagasadiwaskita/wc22-analysis/blob/ece0133891095d53095774353438768bc4567799/Viz/Average%20Age.png">
+<img src="https://github.com/bagasadiwaskita/wc22-analysis/blob/ece0133891095d53095774353438768bc4567799/Viz/Average%20Age.png">
 </p>
 
 From the chart above, we could see that Ghana, United States, Ecuador, and Spain bring many young football players. We could also see that Iran, Mexico, Tunisia, and Argentina bring many old football players.
@@ -109,7 +109,7 @@ In sports including football, a cap is a player's appeareance in a game in inter
 Let's take a look on how is the average of caps at all football players participated in the World Cup 2022 grouped by their team.
 
 <p align="center">
-<img width=50% height=50% src="https://github.com/bagasadiwaskita/wc22-analysis/blob/ece0133891095d53095774353438768bc4567799/Viz/Average%20Caps.png">
+<img src="https://github.com/bagasadiwaskita/wc22-analysis/blob/ece0133891095d53095774353438768bc4567799/Viz/Average%20Caps.png">
 </p>
 
 From the chart above, we could see that Qatar, Belgium, Mexico, and Uruguay bring many football players with high number of caps. We could also see that Ghana, Morocco, Australia, and Cameroon bring many football players with low number of caps.
@@ -121,7 +121,7 @@ It could be said that a player with higher goals performs better that the lower 
 Let's take a look on how is the average of goals at all football players participated in the World Cup 2022 grouped by their team.
 
 <p align="center">
-<img width=50% height=50% src="https://github.com/bagasadiwaskita/wc22-analysis/blob/ece0133891095d53095774353438768bc4567799/Viz/Average%20Goals.png">
+<img src="https://github.com/bagasadiwaskita/wc22-analysis/blob/ece0133891095d53095774353438768bc4567799/Viz/Average%20Goals.png">
 </p>
 
 From the chart above, we could see that Belgium, Qatar, Portugal, and France bring many football players with high number of goals. We could also see that Ghana, Saudi Arabia, Morocco, and Australia bring many football players with low number of goals.
@@ -135,7 +135,11 @@ From that idea, I decided to create a ratio between average number of goals and 
 Here is the distribution of average goals per average caps among all World Cup 2022 team participant.
 
 <p align="center">
-<img width=45% height=45% src="https://github.com/bagasadiwaskita/wc22-analysis/blob/ece0133891095d53095774353438768bc4567799/Viz/Average%20Goals%20per%20Average%20Caps%20Group%20Stage.png"> | <img width=45% height=45% src="https://github.com/bagasadiwaskita/wc22-analysis/blob/ece0133891095d53095774353438768bc4567799/Viz/Average%20Goals%20per%20Average%20Caps.png">
+<img src="https://github.com/bagasadiwaskita/wc22-analysis/blob/ece0133891095d53095774353438768bc4567799/Viz/Average%20Goals%20per%20Average%20Caps%20Group%20Stage.png">
+</p>
+
+<p align="center">
+<img wsrc="https://github.com/bagasadiwaskita/wc22-analysis/blob/ece0133891095d53095774353438768bc4567799/Viz/Average%20Goals%20per%20Average%20Caps.png">
 </p>
 
 From the charts above, we could expect that the top 2 in each group would make it into knockout stage. We also could expect that teams with higher average goals per average caps would likely get a higher placement in the World Cup 2022.
@@ -149,7 +153,11 @@ A football team's win rate is a good measurement to determine how good the perfo
 Here is the distribution of win rate among all World Cup 2022 team participant on international matches in 4 years.
 
 <p align="center">
-<img width=45% height=45% src="https://github.com/bagasadiwaskita/wc22-analysis/blob/ece0133891095d53095774353438768bc4567799/Viz/Win%20Rate%20Group%20Stage.png"> | <img width=45% height=45% src="https://github.com/bagasadiwaskita/wc22-analysis/blob/ece0133891095d53095774353438768bc4567799/Viz/Win%20Rate.png">
+<img src="https://github.com/bagasadiwaskita/wc22-analysis/blob/ece0133891095d53095774353438768bc4567799/Viz/Win%20Rate%20Group%20Stage.png">
+</p>
+
+<p align="center">
+<img src="https://github.com/bagasadiwaskita/wc22-analysis/blob/ece0133891095d53095774353438768bc4567799/Viz/Win%20Rate.png">
 </p>
 
 From the charts above, we could expect that the top 2 in each group would make it into knockout stage. We also could expect that teams with higher win rate would likely get a higher placement in the World Cup 2022.
@@ -163,7 +171,11 @@ The winning condition of football match is when a team scoring the ball into the
 Here is the distribution of goal scored per international match in 4 years among all World Cup 2022 team participant.
 
 <p align="center">
-<img width=45% height=45% src="https://github.com/bagasadiwaskita/wc22-analysis/blob/ece0133891095d53095774353438768bc4567799/Viz/Goals%20Scored%20per%20Match%20Group%20Stage.png"> | <img width=45% height=45% src="https://github.com/bagasadiwaskita/wc22-analysis/blob/ece0133891095d53095774353438768bc4567799/Viz/Goals%20Scored%20per%20Match.png">
+<img src="https://github.com/bagasadiwaskita/wc22-analysis/blob/ece0133891095d53095774353438768bc4567799/Viz/Goals%20Scored%20per%20Match%20Group%20Stage.png">
+</p>
+
+<p align="center">
+<img src="https://github.com/bagasadiwaskita/wc22-analysis/blob/ece0133891095d53095774353438768bc4567799/Viz/Goals%20Scored%20per%20Match.png">
 </p>
 
 From the charts above, we could expect that the top 2 in each group would make it into knockout stage. We also could expect that teams with higher goal scored stats would likely get a higher placement in the World Cup 2022.
@@ -177,7 +189,11 @@ Similar to goal scored stats, we could take information about the team's defensi
 Here is the distribution of goal conceded per international match in 4 years among all World Cup 2022 team participant.
 
 <p align="center">
-<img width=45% height=45% src="https://github.com/bagasadiwaskita/wc22-analysis/blob/ece0133891095d53095774353438768bc4567799/Viz/Goals%20Conceded%20per%20Match%20Group%20Stage.png"> | <img width=45% height=45% src="https://github.com/bagasadiwaskita/wc22-analysis/blob/ece0133891095d53095774353438768bc4567799/Viz/Goals%20Conceded%20per%20Match.png">
+<img src="https://github.com/bagasadiwaskita/wc22-analysis/blob/ece0133891095d53095774353438768bc4567799/Viz/Goals%20Conceded%20per%20Match%20Group%20Stage.png">
+</p>
+
+<p align="center">
+<img src="https://github.com/bagasadiwaskita/wc22-analysis/blob/ece0133891095d53095774353438768bc4567799/Viz/Goals%20Conceded%20per%20Match.png">
 </p>
 
 From the charts above, we could expect that the bottom 2 in each group would make it into knockout stage. We also could expect that teams with lower goal conceded stats would likely get a higher placement in the World Cup 2022.
@@ -191,11 +207,19 @@ A team's win streak is the number of match that a team is winning football match
 Here is the distribution of win streak on international matches in 4 years among all World Cup 2022 team participant.
 
 <p align="center">
-<img width=45% height=45% src="https://github.com/bagasadiwaskita/wc22-analysis/blob/80c189ab862360b782ebc2967c18e6b183ed7e33/Viz/Win%20Streak%20Group%20Stage.png"> | <img width=45% height=45% src="https://github.com/bagasadiwaskita/wc22-analysis/blob/80c189ab862360b782ebc2967c18e6b183ed7e33/Viz/Win%20Streak%20Group%20Stage-2.png">
+<img src="https://github.com/bagasadiwaskita/wc22-analysis/blob/80c189ab862360b782ebc2967c18e6b183ed7e33/Viz/Win%20Streak%20Group%20Stage.png">
 </p>
 
 <p align="center">
-<img width=45% height=45% src="https://github.com/bagasadiwaskita/wc22-analysis/blob/80c189ab862360b782ebc2967c18e6b183ed7e33/Viz/Win%20Streak.png"> | <img width=45% height=45% src="https://github.com/bagasadiwaskita/wc22-analysis/blob/80c189ab862360b782ebc2967c18e6b183ed7e33/Viz/Win%20Streak-2.png">
+<img src="https://github.com/bagasadiwaskita/wc22-analysis/blob/80c189ab862360b782ebc2967c18e6b183ed7e33/Viz/Win%20Streak%20Group%20Stage-2.png">
+</p>
+
+<p align="center">
+<img src="https://github.com/bagasadiwaskita/wc22-analysis/blob/80c189ab862360b782ebc2967c18e6b183ed7e33/Viz/Win%20Streak.png">
+</p>
+
+<p align="center">
+<img src="https://github.com/bagasadiwaskita/wc22-analysis/blob/80c189ab862360b782ebc2967c18e6b183ed7e33/Viz/Win%20Streak-2.png">
 </p>
 
 From the charts above, we could expect that the top 2 in each group would make it into knockout stage. We also could expect that teams with higher number of win streak would likely get a higher placement in the World Cup 2022.
@@ -215,11 +239,19 @@ A team's unbeaten streak is the number of match that a team is not losing footba
 Here is the distribution of unbeaten streak on international matches in 4 years among all World Cup 2022 team participant.
 
 <p align="center">
-<img width=45% height=45% src="https://github.com/bagasadiwaskita/wc22-analysis/blob/80c189ab862360b782ebc2967c18e6b183ed7e33/Viz/Unbeaten%20Streak%20Group%20Stage.png"> | <img width=45% height=45% src="https://github.com/bagasadiwaskita/wc22-analysis/blob/80c189ab862360b782ebc2967c18e6b183ed7e33/Viz/Unbeaten%20Streak%20Group%20Stage-2.png">
+<img src="https://github.com/bagasadiwaskita/wc22-analysis/blob/80c189ab862360b782ebc2967c18e6b183ed7e33/Viz/Unbeaten%20Streak%20Group%20Stage.png">
 </p>
 
 <p align="center">
-<img width=45% height=45% src="https://github.com/bagasadiwaskita/wc22-analysis/blob/80c189ab862360b782ebc2967c18e6b183ed7e33/Viz/Unbeaten%20Streak.png"> | <img width=45% height=45% src="https://github.com/bagasadiwaskita/wc22-analysis/blob/80c189ab862360b782ebc2967c18e6b183ed7e33/Viz/Unbeaten%20Streak-2.png">
+<img src="https://github.com/bagasadiwaskita/wc22-analysis/blob/80c189ab862360b782ebc2967c18e6b183ed7e33/Viz/Unbeaten%20Streak%20Group%20Stage-2.png">
+</p>
+
+<p align="center">
+<img src="https://github.com/bagasadiwaskita/wc22-analysis/blob/80c189ab862360b782ebc2967c18e6b183ed7e33/Viz/Unbeaten%20Streak.png">
+</p>
+
+<p align="center">
+<img src="https://github.com/bagasadiwaskita/wc22-analysis/blob/80c189ab862360b782ebc2967c18e6b183ed7e33/Viz/Unbeaten%20Streak-2.png">
 </p>
 
 From the charts above, we could expect that the top 2 in each group would make it into knockout stage. We also could expect that teams with higher number of unbeaten streak would likely get a higher placement in the World Cup 2022.
