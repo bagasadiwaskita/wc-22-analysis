@@ -139,7 +139,7 @@ Here is the distribution of average goals per average caps among all World Cup 2
 </p>
 
 <p align="center">
-<img wsrc="https://github.com/bagasadiwaskita/wc22-analysis/blob/ece0133891095d53095774353438768bc4567799/Viz/Average%20Goals%20per%20Average%20Caps.png">
+<img src="https://github.com/bagasadiwaskita/wc22-analysis/blob/ece0133891095d53095774353438768bc4567799/Viz/Average%20Goals%20per%20Average%20Caps.png">
 </p>
 
 From the charts above, we could expect that the top 2 in each group would make it into knockout stage. We also could expect that teams with higher average goals per average caps would likely get a higher placement in the World Cup 2022.
