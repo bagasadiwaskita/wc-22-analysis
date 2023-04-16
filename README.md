@@ -328,7 +328,7 @@ Therefore, I create **the rules to decide the weak contender teams based on lose
 - For current lose streak stats,
   * a team is considered as weak contender team when it is on top of their group or has at least 1 match in current lose streak. If there are 2 or more teams     in the top of a group share the same number of current lose streak and it is not zero, team with higher longest lose streak is considered as weak             contender team. If the tie is still on, the tied teams are considered as weak contender team. If all teams in a group share the same number of current       lose streak and it is zero, none of them are considered as weak contender team.
   
-To check all the visualization by yourself, you can look at it [here]()
+To check all the visualization by yourself, you can look at it [here](https://public.tableau.com/views/Pre-FIFAWorldCupQatar2022Analysis/FIFARankingGroupStage?:language=en-US&:display_count=n&:origin=viz_share_link).
 
 ## Interpretation: Determine the Underperform and Overachieved Team
 
@@ -336,4 +336,33 @@ In this section, I will determine which team is considered as underperform or ov
 
 From the analysis section, we got 9 categories to consider both strong contender team and weak contender team. **That means, the underperformed team is a strong condender team in at least 5 main units to measure World Cup 2022 team participants' strength but ended up losing in the group stage of World Cup 2022. Furthermore, the overachieved team is a weak condender team in at least 5 main units to measure World Cup 2022 team participants' strength but reach at least the quarter finals of World Cup 2022.**
 
-From the analysis section, the team that considered strong contender team in at least 5 main units are 
+I've done the code to count how many times all teams considered strong contender team or weak contender team in *[interpretation.py](https://github.com/bagasadiwaskita/wc22-analysis/blob/8153e6259b17032cb996887fb7b8b04428cd1857/Interpretation/interpretation.py)*.
+
+According to *[interpretation.py](https://github.com/bagasadiwaskita/wc22-analysis/blob/8153e6259b17032cb996887fb7b8b04428cd1857/Interpretation/interpretation.py)*, teams that considered as strong contender team in 5 or more main units are:
+
+1. Netherlands
+2. Iran
+3. Argentina
+4. Australia
+5. Belgium
+6. Brazil
+7. South Korea
+
+Furthermore, teams that considered as weak contender team in 5 or more main units are:
+
+1. Qatar
+2. Equador
+3. Wales
+4. Saudi Arabia
+5. Tunisia
+6. Costa Rica
+7. Croatia
+8. Cameroon
+
+To define the underperformed and overachieved teams, we need to look at the placement of the teams in the FIFA World Cup Qatar 2022. The placements is implied [here](https://www.fifa.com/fifaplus/en/tournaments/mens/worldcup/qatar2022/knockout-and-groups). According to my analysis and the placements, here is the underperformed and overachieved teams.
+
+### Underperformed Team  No. 1: Iran
+
+### Underperformed Team  No. 2: Belgium
+
+### Overachieved Team  No. 1: Croatia
