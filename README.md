@@ -327,12 +327,12 @@ Therefore, I create **the rules to decide the weak contender teams based on lose
 
 - For current lose streak stats,
   * a team is considered as weak contender team when it is on top of their group or has at least 1 match in current lose streak. If there are 2 or more teams     in the top of a group share the same number of current lose streak and it is not zero, team with higher longest lose streak is considered as weak             contender team. If the tie is still on, the tied teams are considered as weak contender team. If all teams in a group share the same number of current       lose streak and it is zero, none of them are considered as weak contender team.
+  
+To check all the visualization by yourself, you can look at it [here]()
 
 ## Interpretation: Determine the Underperform and Overachieved Team
 
 In this section, I will determine which team is considered as underperform or overachieved in the World Cup 2022.
-
-As I explain in the analysis plan section, I determine the underperformed team is a strong condender team in more than half of all the main units to measure World Cup 2022 team participants' strength but ended up losing in the group stage of World Cup 2022. I also determine the overachieved team is a weak condender team in more than half of all the main units to measure World Cup 2022 team participants' strength but reach at least the quarter finals of World Cup 2022.
 
 From the analysis section, we got 9 categories to consider both strong contender team and weak contender team. **That means, the underperformed team is a strong condender team in at least 5 main units to measure World Cup 2022 team participants' strength but ended up losing in the group stage of World Cup 2022. Furthermore, the overachieved team is a weak condender team in at least 5 main units to measure World Cup 2022 team participants' strength but reach at least the quarter finals of World Cup 2022.**
 
