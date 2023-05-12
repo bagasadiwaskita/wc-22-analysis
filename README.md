@@ -370,20 +370,17 @@ To define the underperformed and overachieved teams, we need to look at the plac
 
 ### Underperformed Team  No. 1: Iran
 
-<img src="(https://api.fifa.com/api/v3/picture/flags-sq-4/IRN)">
-
+<img src="https://api.fifa.com/api/v3/picture/flags-sq-4/IRN">
 Iran comes to FIFA World Cup Qatar 2022 with a really good stats on their recent international matches. It can be seen that they are one of the strong contender team on their stats of recent international matches such as win rate, goal scored per match, and goal conceded per match. They also the best at their group in terms of player's average goals per average caps, their longest win streak, and their unbeaten streaks. Unfortunately, they are placed 3rd in Group B, losing to England and United States.
 
 ### Underperformed Team  No. 2: Belgium
 
-<img src="(https://api.fifa.com/api/v3/picture/flags-sq-4/BEL)">
-
+<img src="https://api.fifa.com/api/v3/picture/flags-sq-4/BEL">
 As 2nd ranked team on FIFA Ranking, Belgium's run at FIFA World Cup are truly disappointing. With good player's average goals per average caps, win rate, goal scored per international matches, and team with longest win streak tied with Morocco, they only placed 3rd in Group F, hands over the knockout round tickets to Morocco and Croatia. FIFA World Cup Qatar 2022 won't be missed by Belgium football players and fans.
 
 ### Overachieved Team  No. 1: Croatia
 
-<img src="(https://api.fifa.com/api/v3/picture/flags-sq-4/CRO)">
-
+<img src="https://api.fifa.com/api/v3/picture/flags-sq-4/CRO">
 As the runner up of World Cup 2018, Croatia's run before the FIFA World Cup Qatar 2022 is not so good, mainly on their recent international matches. Not just the team with highest goal conceded per international match, their stats are also bad in international matches' win rate, goal scored per match, longest winless streak, and longest lose streak compared to their rival in Group F. However, it seems like they found their best gameplay right before the world cup starts. It can be seen that they have 4 current win streaks. Their good trends continues in the world cup until they finish the world cup in 3rd place.
 
 ## Open Problems
