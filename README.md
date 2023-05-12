@@ -8,11 +8,18 @@ FIFA World Cup Qatar 2022 had completed with Argentina as the champions of the c
 
 ## Analysis Plan
 
-Given historical data leading up to the World Cup 2022, I would like to determine which countries are underperformed or overachieved in the World Cup 2022. **I determine the underperformed team is a strong condender team in more than half of all the main units to measure World Cup 2022 team participants' strength but ended up losing in the group stage of World Cup 2022. I also determine the overachieved team is a weak condender team in more than half of all the main units to measure World Cup 2022 team participants' strength but reach at least the quarter finals of World Cup 2022.** To achieve the goals, my analysis focused into data about all participated teams' **FIFA Ranking**, **squads**, and **recent international match results**.
+- Goals: Given historical data leading up to the World Cup 2022, I would like to determine which countries are underperformed or          overachieved in the World Cup 2022.
+- Some Definition:
+  * Strong Contender Team: A team that is considered better than most of other team on 1 main unit.
+  * Weak Contender Team: A team that is considered worse than most of other team on 1 main unit.
+  * Underperformed Team: A strong contender team in more than half of all the main units to measure World Cup 2022 team                                    participants' strength but ended up losing in the group stage of World Cup 2022.
+  * Overachieved Team: A weak contender team in more than half of all the main units to measure World Cup 2022 team participants'                        strength but reach at least the quarter finals of World Cup 2022.
+ 
+To achieve the goals, my analysis focused into data about all participated teams' **FIFA Ranking**, **squads**, and **recent international match results**.
 
 The dataset I used for this analysis is from [Maven Analytics](https://www.mavenanalytics.io/data-playground).
 
-## Data Pre-processing
+## Data Processing
 
 There are many tables in the World Cup Dataset. To make it easier to analyse, I will join all data used for analysis in 1 table. The tool I used on this step is ***MySQL/MariaDB Workspace*** in ***[sqliteonline.com](https://sqliteonline.com/)*** and ***Python*** in ***Jupyter Notebook***.
 
@@ -20,17 +27,17 @@ There are many tables in the World Cup Dataset. To make it easier to analyse, I 
 
 FIFA Ranking (in this context is FIFA Men's World Ranking) is a ranking system by FIFA for men's national teams in association football. The national teams of the men's member nations of FIFA are ranked based on their game result with the most successful teams being ranked highest.
 
-Table that contains FIFA Ranking values is *[2022_world_cup_groups.csv](https://github.com/bagasadiwaskita/wc22-analysis/blob/46eab7adc5e68c4a98e893f536a474111199b30c/World%20Cup%20Dataset%20(Original)/2022_world_cup_groups.csv)*. I rename the table into *wc22_groups.csv* to simplify the name. Other than that, no changes needed. I used SQL on this step.
+Table that contains FIFA Ranking values is *[2022_world_cup_groups.csv]()*. I rename the table into *wc22_groups.csv* to simplify the name. Other than that, no changes needed. I used SQL on this step.
 ```
 SELECT * FROM wc22_groups;
 ```
-The result of this step is *[wc22_groups.csv](https://github.com/bagasadiwaskita/wc22-analysis/blob/46eab7adc5e68c4a98e893f536a474111199b30c/Pre-processing/wc22_groups.csv)*.
+The result of this step is *[wc22_groups.csv]()*.
 
 ### 2. Squads
 
 There are a lot of information in team squad's data, such as player's name, position he plays, age, etc. In this step, I will get information about team's *average of player's age, caps, goals, and goals per caps*.
 
-Table that contains squads details is *[2022_world_cup_squads.csv](https://github.com/bagasadiwaskita/wc22-analysis/blob/46eab7adc5e68c4a98e893f536a474111199b30c/World%20Cup%20Dataset%20(Original)/2022_world_cup_squads.csv)*. I rename the table into *wc22_squads.csv* to simplify the name. To get the data I needed, I have to create SQL query that show the table of all participated teams with their values of average of age, caps, goals, and goals per caps.
+Table that contains squads details is *[2022_world_cup_squads.csv]()*. I rename the table into *wc22_squads.csv* to simplify the name. To get the data I needed, I have to create SQL query that show the table of all participated teams with their values of average of age, caps, goals, and goals per caps.
 ```
 -- I will use round 4 decimal
 SELECT DISTINCT Team,
@@ -40,15 +47,15 @@ SELECT DISTINCT Team,
        ROUND((AVG(Goals) / AVG(Caps)),4) AS Avg_GoalsPerCaps
 FROM wc22_squads GROUP BY Team;
 ```
-The result of this step is *[wc22_squads.csv](https://github.com/bagasadiwaskita/wc22-analysis/blob/46eab7adc5e68c4a98e893f536a474111199b30c/Pre-processing/wc22_squads.csv)*.
+The result of this step is *[wc22_squads.csv]()*.
 
 ### 3. Recent International Matches Results
 
 Football match in general is the main showdown of football to show which team is stronger at the moment, so it is impossible to ignore international matches results to look which national team is stronger than the others. That means recent international matches results could be a tool to measure football team's strength.
 
-Table that contains international matches details is *[international_matches.csv](https://github.com/bagasadiwaskita/wc22-analysis/blob/46eab7adc5e68c4a98e893f536a474111199b30c/World%20Cup%20Dataset%20(Original)/international_matches.csv)*. To collect the needed data, I used Python in this step since it would be too difficult if I did it in SQL.
+Table that contains international matches details is *[international_matches.csv]()*. To collect the needed data, I used Python in this step since it would be too difficult if I did it in SQL.
 
-Details about what I do in this step is in *[intl_matches_summary.ipynb](https://github.com/bagasadiwaskita/wc22-analysis/blob/46eab7adc5e68c4a98e893f536a474111199b30c/Pre-processing/intl_matches_summary.ipynb)* and the result of this step is in *[intl_matches_summary.csv](https://github.com/bagasadiwaskita/wc22-analysis/blob/46eab7adc5e68c4a98e893f536a474111199b30c/Pre-processing/intl_matches_summary.csv)*.
+Details about what I do in this step is in *[intl_matches_summary.ipynb]()* and the result of this step is in *[intl_matches_summary.csv]()*.
 
 ### 4. Joining the Table and Show the Data Related to Team Strength
 
@@ -70,11 +77,11 @@ FROM wc22_groups AS groups
 INNER JOIN wc22_squads AS squads ON groups.Team = squads.Team
 INNER JOIN intl_matches_summary AS matches ON groups.Team = matches.Team;
 ```
-The result of this step is *[wc22_final_table.csv](https://github.com/bagasadiwaskita/wc22-analysis/blob/46eab7adc5e68c4a98e893f536a474111199b30c/Pre-processing/wc22_final_table.csv)*.
+The result of this step is *[wc22_final_table.csv]()*.
 
 ## Analysis with Visualization
 
-In this section, I will analyze all the information from *[wc22_final_table.csv](https://github.com/bagasadiwaskita/wc22-analysis/blob/46eab7adc5e68c4a98e893f536a474111199b30c/Pre-processing/wc22_final_table.csv)*. The goal in this step is to determine which aspect that can be used as the main units to measure World Cup 2022 team participants' strength. After that, we decide the strong contender and weak contender team based on that aspect.
+In this section, I will analyze all the information from *[wc22_final_table.csv]()*. The goal in this step is to determine which aspect that can be used as the main units to measure World Cup 2022 team participants' strength. After that, we decide the strong contender and weak contender team based on that aspect.
 
 ### 1. FIFA Ranking of the Team
 
@@ -227,10 +234,10 @@ From the charts above, we could expect that the top 2 in each group would make i
 Therefore, I create **the rules to decide the strong contender teams based on win streak** according to the charts.
 
 - For longest win streak stats,
-  * a team is considered as strong contender team when it is on top of their group or has at least 9 matches in longest win streak. If there are 2 or more       teams in the top of a group share the same number of longest win streak, team with higher current win streak is considered as strong contender team. If       the tie is still on, the tied teams are considered as strong contender team.
+  * a team is considered as strong contender team when it is on top of their group or has at least 9 matches in longest win           streak. If there are 2 or more teams in the top of a group share the same number of longest win streak, team with higher         current win streak is considered as strong contender team. If the tie is still on, the tied teams are considered as strong       contender team.
 
 - For current win streak stats,
-  * a team is considered as strong contender team when it is on top of their group or has at least 2 matches in current win streak. If there are 2 or more       teams in the top of a group share the same number of current win streak and it is not zero, team with higher longest win streak is considered as strong       contender team. If the tie is still on, the tied teams are considered as strong contender team. If all teams in a group share the same number of current     win streak and it is zero, none of them are considered as strong contender team.
+  * a team is considered as strong contender team when it is on top of their group or has at least 2 matches in current win           streak. If there are 2 or more teams in the top of a group share the same number of current win streak and it is not zero,       team with higher longest win streak is considered as strong contender team. If the tie is still on, the tied teams are           considered as strong contender team. If all teams in a group share the same number of current win streak and it is zero, none     of them are considered as strong contender team.
 
 ### 10. Team's Unbeaten Streak on International Matches in 4 Years
 
@@ -259,10 +266,10 @@ From the charts above, we could expect that the top 2 in each group would make i
 Therefore, I create **the rules to decide the strong contender teams based on unbeaten streak** according to the charts.
 
 - For longest unbeaten streak stats,
-  * a team is considered as strong contender team when it is on top of their group or has at least 14 matches in longest unbeaten streak. If there are 2 or       more teams in the top of a group share the same number of longest unbeaten streak, team with higher current unbeaten streak is considered as strong           contender team. If the tie is still on, the tied teams are considered as strong contender team.
+  * a team is considered as strong contender team when it is on top of their group or has at least 14 matches in longest unbeaten     streak. If there are 2 or more teams in the top of a group share the same number of longest unbeaten streak, team with higher     current unbeaten streak is considered as strong contender team. If the tie is still on, the tied teams are considered as         strong contender team.
 
 - For current unbeaten streak stats,
-  * a team is considered as strong contender team when it is on top of their group or has at least 5 matches in current unbeaten streak. If there are 2 or       more teams in the top of a group share the same number of current unbeaten streak and it is not zero, team with higher longest unbeaten streak is             considered as strong contender team. If the tie is still on, the tied teams are considered as strong contender team. If all teams in a group share the       same number of current unbeaten streak and it is zero, none of them are considered as strong contender team.
+  * a team is considered as strong contender team when it is on top of their group or has at least 5 matches in current unbeaten     streak. If there are 2 or more teams in the top of a group share the same number of current unbeaten streak and it is not         zero, team with higher longest unbeaten streak is considered as strong contender team. If the tie is still on, the tied teams     are considered as strong contender team. If all teams in a group share the same number of current unbeaten streak and it is       zero, none of them are considered as strong contender team.
 
 ### 11. Team's Winless Streak on International Matches in 4 Years
 
@@ -291,10 +298,10 @@ From the charts above, we could expect that the bottom 2 in each group would mak
 Therefore, I create **the rules to decide the weak contender teams based on winless streak** according to the charts.
 
 - For longest winless streak stats,
-  * a team is considered as weak contender team when it is on top of their group or has at least 6 matches in longest winless streak. If there are 2 or more     teams in the top of a group share the same number of longest winless streak, team with higher current winless streak is considered as weak contender         team. If the tie is still on, the tied teams are considered as weak contender team.
+  * a team is considered as weak contender team when it is on top of their group or has at least 6 matches in longest winless         streak. If there are 2 or more teams in the top of a group share the same number of longest winless streak, team with higher     current winless streak is considered as weak contender team. If the tie is still on, the tied teams are considered as weak       contender team.
 
 - For current winless streak stats,
-  * a team is considered as weak contender team when it is on top of their group or has at least 2 matches in current winless streak. If there are 2 or more     teams in the top of a group share the same number of current winless streak and it is not zero, team with higher longest winless streak is considered as     weak contender team. If the tie is still on, the tied teams are considered as weak contender team. If all teams in a group share the same number of           current winless streak and it is zero, none of them are considered as weak contender team.
+  * a team is considered as weak contender team when it is on top of their group or has at least 2 matches in current winless         streak. If there are 2 or more teams in the top of a group share the same number of current winless streak and it is not         zero, team with higher longest winless streak is considered as weak contender team. If the tie is still on, the tied teams       are considered as weak contender team. If all teams in a group share the same number of current winless streak and it is         zero, none of them are considered as weak contender team.
 
 ### 12. Team's Lose Streak on International Matches in 4 Years
 
@@ -323,10 +330,10 @@ From the charts above, we could expect that the bottom 2 in each group would mak
 Therefore, I create **the rules to decide the weak contender teams based on lose streak** according to the charts.
 
 - For longest lose streak stats,
-  * a team is considered as weak contender team when it is on top of their group or has at least 4 matches in longest lose streak. If there are 2 or more         teams in the top of a group share the same number of longest lose streak, team with higher current lose streak is considered as weak contender team. If       the tie is still on, the tied teams are considered as weak contender team.
+  * a team is considered as weak contender team when it is on top of their group or has at least 4 matches in longest lose           streak. If there are 2 or more teams in the top of a group share the same number of longest lose streak, team with higher         current lose streak is considered as weak contender team. If the tie is still on, the tied teams are considered as weak           contender team.
 
 - For current lose streak stats,
-  * a team is considered as weak contender team when it is on top of their group or has at least 1 match in current lose streak. If there are 2 or more teams     in the top of a group share the same number of current lose streak and it is not zero, team with higher longest lose streak is considered as weak             contender team. If the tie is still on, the tied teams are considered as weak contender team. If all teams in a group share the same number of current       lose streak and it is zero, none of them are considered as weak contender team.
+  * a team is considered as weak contender team when it is on top of their group or has at least 1 match in current lose streak.     If there are 2 or more teams in the top of a group share the same number of current lose streak and it is not zero, team with     higher longest lose streak is considered as weak contender team. If the tie is still on, the tied teams are considered as         weak contender team. If all teams in a group share the same number of current lose streak and it is zero, none of them are       considered as weak contender team.
   
 To check all the visualization by yourself, you can look at it [here](https://public.tableau.com/views/Pre-FIFAWorldCupQatar2022Analysis/FIFARankingGroupStage?:language=en-US&:display_count=n&:origin=viz_share_link).
 
@@ -336,9 +343,9 @@ In this section, I will determine which team is considered as underperform or ov
 
 From the analysis section, we got 9 categories to consider both strong contender team and weak contender team. **That means, the underperformed team is a strong condender team in at least 5 main units to measure World Cup 2022 team participants' strength but ended up losing in the group stage of World Cup 2022. Furthermore, the overachieved team is a weak condender team in at least 5 main units to measure World Cup 2022 team participants' strength but reach at least the quarter finals of World Cup 2022.**
 
-I've done the code to count how many times all teams considered strong contender team or weak contender team in *[interpretation.py](https://github.com/bagasadiwaskita/wc22-analysis/blob/8153e6259b17032cb996887fb7b8b04428cd1857/Interpretation/interpretation.py)*.
+I've done the code to count how many times all teams considered strong contender team or weak contender team in *[interpretation.py]()*.
 
-According to *[interpretation.py](https://github.com/bagasadiwaskita/wc22-analysis/blob/8153e6259b17032cb996887fb7b8b04428cd1857/Interpretation/interpretation.py)*, teams that considered as strong contender team in 5 or more main units are:
+According to *[interpretation.py]()*, teams that considered as strong contender team in 5 or more main units are:
 
 1. Netherlands
 2. Iran
@@ -363,13 +370,19 @@ To define the underperformed and overachieved teams, we need to look at the plac
 
 ### Underperformed Team  No. 1: Iran
 
+<img src="(https://api.fifa.com/api/v3/picture/flags-sq-4/IRN)">
+
 Iran comes to FIFA World Cup Qatar 2022 with a really good stats on their recent international matches. It can be seen that they are one of the strong contender team on their stats of recent international matches such as win rate, goal scored per match, and goal conceded per match. They also the best at their group in terms of player's average goals per average caps, their longest win streak, and their unbeaten streaks. Unfortunately, they are placed 3rd in Group B, losing to England and United States.
 
 ### Underperformed Team  No. 2: Belgium
 
+<img src="(https://api.fifa.com/api/v3/picture/flags-sq-4/BEL)">
+
 As 2nd ranked team on FIFA Ranking, Belgium's run at FIFA World Cup are truly disappointing. With good player's average goals per average caps, win rate, goal scored per international matches, and team with longest win streak tied with Morocco, they only placed 3rd in Group F, hands over the knockout round tickets to Morocco and Croatia. FIFA World Cup Qatar 2022 won't be missed by Belgium football players and fans.
 
 ### Overachieved Team  No. 1: Croatia
+
+<img src="(https://api.fifa.com/api/v3/picture/flags-sq-4/CRO)">
 
 As the runner up of World Cup 2018, Croatia's run before the FIFA World Cup Qatar 2022 is not so good, mainly on their recent international matches. Not just the team with highest goal conceded per international match, their stats are also bad in international matches' win rate, goal scored per match, longest winless streak, and longest lose streak compared to their rival in Group F. However, it seems like they found their best gameplay right before the world cup starts. It can be seen that they have 4 current win streaks. Their good trends continues in the world cup until they finish the world cup in 3rd place.
 
