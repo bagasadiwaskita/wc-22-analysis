@@ -27,7 +27,7 @@ There are many tables in the World Cup Dataset. To make it easier to analyse, I 
 
 FIFA Ranking (in this context is FIFA Men's World Ranking) is a ranking system by FIFA for men's national teams in association football. The national teams of the men's member nations of FIFA are ranked based on their game result with the most successful teams being ranked highest.
 
-Table that contains FIFA Ranking values is *[2022_world_cup_groups.csv](World Cup Dataset (Original)/2022_world_cup_groups.csv)*. I rename the table into *wc22_groups.csv* to simplify the name. Other than that, no changes needed. I used SQL on this step.
+Table that contains FIFA Ranking values is *[2022_world_cup_groups.csv](/World Cup Dataset (Original)/2022_world_cup_groups.csv)*. I rename the table into *wc22_groups.csv* to simplify the name. Other than that, no changes needed. I used SQL on this step.
 ```
 SELECT * FROM wc22_groups;
 ```
