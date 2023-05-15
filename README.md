@@ -343,9 +343,9 @@ In this section, I will determine which team is considered as underperform or ov
 
 From the analysis section, we got 9 categories to consider both strong contender team and weak contender team. **That means, a team needs at least 5 main units to decide if that team is considered the underperformed team, overachieved team, or neither of them.**
 
-I've done the code to count how many times all teams considered strong contender team or weak contender team in *[interpretation.py](https://github.com/bagasadiwaskita/wc22-analysis/blob/b4cd81b3e017ad6c90b511541ee833479cdc1744/Interpretation/interpretation.py)*.
+I've done the code to count how many times all teams considered strong contender team or weak contender team in *[interpretation.py](https://github.com/bagasadiwaskita/wc22-analysis/blob/main/Interpretation/interpretation.py)*.
 
-According to *[interpretation.py](https://github.com/bagasadiwaskita/wc22-analysis/blob/b4cd81b3e017ad6c90b511541ee833479cdc1744/Interpretation/interpretation.py)*, teams that considered as strong contender team in 5 or more main units are:
+According to *[interpretation.py](https://github.com/bagasadiwaskita/wc22-analysis/blob/main/Interpretation/interpretation.py)*, teams that considered as strong contender team in 5 or more main units are:
 
 1. Netherlands
 2. Iran
