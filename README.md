@@ -27,17 +27,17 @@ There are many tables in the World Cup Dataset. To make it easier to analyse, I 
 
 FIFA Ranking (in this context is FIFA Men's World Ranking) is a ranking system by FIFA for men's national teams in association football. The national teams of the men's member nations of FIFA are ranked based on their game result with the most successful teams being ranked highest.
 
-Table that contains FIFA Ranking values is *[2022_world_cup_groups.csv](https://github.com/bagasadiwaskita/wc22-analysis/blob/b4cd81b3e017ad6c90b511541ee833479cdc1744/World_Cup_Dataset_Ori/2022_world_cup_groups.csv)*. I rename the table into *wc22_groups.csv* to simplify the name. Other than that, no changes needed. I used SQL on this step.
+Table that contains FIFA Ranking values is *[2022_world_cup_groups.csv](https://github.com/bagasadiwaskita/wc22-analysis/blob/main/World_Cup_Dataset_Ori/2022_world_cup_groups.csv)*. I rename the table into *wc22_groups.csv* to simplify the name. Other than that, no changes needed. I used SQL on this step.
 ```
 SELECT * FROM wc22_groups;
 ```
-The result of this step is *[wc22_groups.csv](https://github.com/bagasadiwaskita/wc22-analysis/blob/b4cd81b3e017ad6c90b511541ee833479cdc1744/Data_Processing/wc22_groups.csv)*.
+The result of this step is *[wc22_groups.csv](https://github.com/bagasadiwaskita/wc22-analysis/blob/main/Data_Processing/wc22_groups.csv)*.
 
 ### 2. Squads
 
 There are a lot of information in team squad's data, such as player's name, position he plays, age, etc. In this step, I will get information about team's *average of player's age, caps, goals, and goals per caps*.
 
-Table that contains squads details is *[2022_world_cup_squads.csv](https://github.com/bagasadiwaskita/wc22-analysis/blob/b4cd81b3e017ad6c90b511541ee833479cdc1744/World_Cup_Dataset_Ori/2022_world_cup_squads.csv)*. I rename the table into *wc22_squads.csv* to simplify the name. To get the data I needed, I have to create SQL query that show the table of all participated teams with their values of average of age, caps, goals, and goals per caps.
+Table that contains squads details is *[2022_world_cup_squads.csv](https://github.com/bagasadiwaskita/wc22-analysis/blob/main/World_Cup_Dataset_Ori/2022_world_cup_squads.csv)*. I rename the table into *wc22_squads.csv* to simplify the name. To get the data I needed, I have to create SQL query that show the table of all participated teams with their values of average of age, caps, goals, and goals per caps.
 ```
 -- I will use round 4 decimal
 SELECT DISTINCT Team,
@@ -47,15 +47,15 @@ SELECT DISTINCT Team,
        ROUND((AVG(Goals) / AVG(Caps)),4) AS Avg_GoalsPerCaps
 FROM wc22_squads GROUP BY Team;
 ```
-The result of this step is *[wc22_squads.csv](https://github.com/bagasadiwaskita/wc22-analysis/blob/b4cd81b3e017ad6c90b511541ee833479cdc1744/Data_Processing/wc22_squads.csv)*.
+The result of this step is *[wc22_squads.csv](https://github.com/bagasadiwaskita/wc22-analysis/blob/main/Data_Processing/wc22_squads.csv)*.
 
 ### 3. Recent International Matches Results
 
 Football match in general is the main showdown of football to show which team is stronger at the moment, so it is impossible to ignore international matches results to look which national team is stronger than the others. That means recent international matches results could be a tool to measure football team's strength.
 
-Table that contains international matches details is *[international_matches.csv](https://github.com/bagasadiwaskita/wc22-analysis/blob/b4cd81b3e017ad6c90b511541ee833479cdc1744/World_Cup_Dataset_Ori/international_matches.csv)*. To collect the needed data, I used Python in this step since it would be too difficult if I did it in SQL.
+Table that contains international matches details is *[international_matches.csv](https://github.com/bagasadiwaskita/wc22-analysis/blob/main/World_Cup_Dataset_Ori/international_matches.csv)*. To collect the needed data, I used Python in this step since it would be too difficult if I did it in SQL.
 
-Details about what I do in this step is in *[intl_matches_summary.ipynb](https://github.com/bagasadiwaskita/wc22-analysis/blob/b4cd81b3e017ad6c90b511541ee833479cdc1744/Data_Processing/intl_matches_summary.ipynb)* and the result of this step is in *[intl_matches_summary.csv](https://github.com/bagasadiwaskita/wc22-analysis/blob/b4cd81b3e017ad6c90b511541ee833479cdc1744/Data_Processing/intl_matches_summary.csv)*.
+Details about what I do in this step is in *[intl_matches_summary.ipynb](https://github.com/bagasadiwaskita/wc22-analysis/blob/main/Data_Processing/intl_matches_summary.ipynb)* and the result of this step is in *[intl_matches_summary.csv](https://github.com/bagasadiwaskita/wc22-analysis/blob/main/Data_Processing/intl_matches_summary.csv)*.
 
 ### 4. Joining the Table and Show the Data Related to Team Strength
 
@@ -77,11 +77,11 @@ FROM wc22_groups AS groups
 INNER JOIN wc22_squads AS squads ON groups.Team = squads.Team
 INNER JOIN intl_matches_summary AS matches ON groups.Team = matches.Team;
 ```
-The result of this step is *[wc22_final_table.csv](https://github.com/bagasadiwaskita/wc22-analysis/blob/b4cd81b3e017ad6c90b511541ee833479cdc1744/Data_Processing/wc22_final_table.csv)*.
+The result of this step is *[wc22_final_table.csv](https://github.com/bagasadiwaskita/wc22-analysis/blob/main/Data_Processing/wc22_final_table.csv)*.
 
 ## Analysis with Visualization
 
-In this section, I will analyze all the information from *[wc22_final_table.csv](https://github.com/bagasadiwaskita/wc22-analysis/blob/b4cd81b3e017ad6c90b511541ee833479cdc1744/Analysis_and_Visualization/wc22_final_table.csv)*. The goal in this step is to determine which aspect that can be used as the main units to measure World Cup 2022 team participants' strength. After that, we decide the strong contender and weak contender team based on that aspect.
+In this section, I will analyze all the information from *[wc22_final_table.csv](https://github.com/bagasadiwaskita/wc22-analysis/blob/main/Analysis_and_Visualization/wc22_final_table.csv)*. The goal in this step is to determine which aspect that can be used as the main units to measure World Cup 2022 team participants' strength. After that, we decide the strong contender and weak contender team based on that aspect.
 
 ### 1. FIFA Ranking of the Team
 
@@ -90,7 +90,7 @@ Since FIFA Ranking calculation is based on the game result directly, that means 
 Here is the distribution of FIFA Ranking among all World Cup 2022 participant.
 
 <p align="center">
-<img src="https://github.com/bagasadiwaskita/wc22-analysis/blob/b4cd81b3e017ad6c90b511541ee833479cdc1744/Analysis_and_Visualization/Viz/FIFA_Ranking_GS.png"> | <img src="https://github.com/bagasadiwaskita/wc22-analysis/blob/b4cd81b3e017ad6c90b511541ee833479cdc1744/Analysis_and_Visualization/Viz/FIFA_Ranking.png">
+<img src="https://github.com/bagasadiwaskita/wc22-analysis/blob/main/Analysis_and_Visualization/Viz/FIFA_Ranking_GS.png"> | <img src="https://github.com/bagasadiwaskita/wc22-analysis/blob/main/Analysis_and_Visualization/Viz/FIFA_Ranking.png">
 </p>
 
 From the pictures above, we could expect that the top 2 in each group would make it into knockout stage. We also could expect that higher ranked teams would likely get a higher placement in the World Cup 2022.
@@ -104,7 +104,7 @@ Age sometimes could means something for football players. From common people's p
 Let's take a look on how is the average of age at all football players participated in the World Cup 2022 grouped by their team.
 
 <p align="center">
-<img src="https://github.com/bagasadiwaskita/wc22-analysis/blob/b4cd81b3e017ad6c90b511541ee833479cdc1744/Analysis_and_Visualization/Viz/Avg_Age.png">
+<img src="https://github.com/bagasadiwaskita/wc22-analysis/blob/main/Analysis_and_Visualization/Viz/Avg_Age.png">
 </p>
 
 From the chart above, we could see that Ghana, United States, Ecuador, and Spain bring many young football players. We could also see that Iran, Mexico, Tunisia, and Argentina bring many old football players.
@@ -116,7 +116,7 @@ In sports including football, a cap is a player's appeareance in a game in inter
 Let's take a look on how is the average of caps at all football players participated in the World Cup 2022 grouped by their team.
 
 <p align="center">
-<img src="https://github.com/bagasadiwaskita/wc22-analysis/blob/b4cd81b3e017ad6c90b511541ee833479cdc1744/Analysis_and_Visualization/Viz/Avg_Caps.png">
+<img src="https://github.com/bagasadiwaskita/wc22-analysis/blob/main/Analysis_and_Visualization/Viz/Avg_Caps.png">
 </p>
 
 From the chart above, we could see that Qatar, Belgium, Mexico, and Uruguay bring many football players with high number of caps. We could also see that Ghana, Morocco, Australia, and Cameroon bring many football players with low number of caps.
@@ -128,7 +128,7 @@ It could be said that a player with higher goals performs better that the lower 
 Let's take a look on how is the average of goals at all football players participated in the World Cup 2022 grouped by their team.
 
 <p align="center">
-<img src="https://github.com/bagasadiwaskita/wc22-analysis/blob/b4cd81b3e017ad6c90b511541ee833479cdc1744/Analysis_and_Visualization/Viz/Avg_Goals.png">
+<img src="https://github.com/bagasadiwaskita/wc22-analysis/blob/main/Analysis_and_Visualization/Viz/Avg_Goals.png">
 </p>
 
 From the chart above, we could see that Belgium, Qatar, Portugal, and France bring many football players with high number of goals. We could also see that Ghana, Saudi Arabia, Morocco, and Australia bring many football players with low number of goals.
@@ -142,11 +142,11 @@ From that idea, I decided to create a ratio between average number of goals and 
 Here is the distribution of average goals per average caps among all World Cup 2022 team participant.
 
 <p align="center">
-<img src="https://github.com/bagasadiwaskita/wc22-analysis/blob/b4cd81b3e017ad6c90b511541ee833479cdc1744/Analysis_and_Visualization/Viz/Avg_Goals_per_Avg_Caps_GS.png">
+<img src="https://github.com/bagasadiwaskita/wc22-analysis/blob/main/Analysis_and_Visualization/Viz/Avg_Goals_per_Avg_Caps_GS.png">
 </p>
 
 <p align="center">
-<img src="https://github.com/bagasadiwaskita/wc22-analysis/blob/b4cd81b3e017ad6c90b511541ee833479cdc1744/Analysis_and_Visualization/Viz/Avg_Goals_per_Avg_Caps.png">
+<img src="https://github.com/bagasadiwaskita/wc22-analysis/blob/main/Analysis_and_Visualization/Viz/Avg_Goals_per_Avg_Caps.png">
 </p>
 
 From the charts above, we could expect that the top 2 in each group would make it into knockout stage. We also could expect that teams with higher average goals per average caps would likely get a higher placement in the World Cup 2022.
@@ -160,11 +160,11 @@ A football team's win rate is a good measurement to determine how good the perfo
 Here is the distribution of win rate among all World Cup 2022 team participant on international matches in 4 years.
 
 <p align="center">
-<img src="https://github.com/bagasadiwaskita/wc22-analysis/blob/b4cd81b3e017ad6c90b511541ee833479cdc1744/Analysis_and_Visualization/Viz/Win_Rate_GS.png">
+<img src="https://github.com/bagasadiwaskita/wc22-analysis/blob/main/Analysis_and_Visualization/Viz/Win_Rate_GS.png">
 </p>
 
 <p align="center">
-<img src="https://github.com/bagasadiwaskita/wc22-analysis/blob/b4cd81b3e017ad6c90b511541ee833479cdc1744/Analysis_and_Visualization/Viz/Win_Rate.png">
+<img src="https://github.com/bagasadiwaskita/wc22-analysis/blob/main/Analysis_and_Visualization/Viz/Win_Rate.png">
 </p>
 
 From the charts above, we could expect that the top 2 in each group would make it into knockout stage. We also could expect that teams with higher win rate would likely get a higher placement in the World Cup 2022.
@@ -178,11 +178,11 @@ The winning condition of football match is when a team scoring the ball into the
 Here is the distribution of goal scored per international match in 4 years among all World Cup 2022 team participant.
 
 <p align="center">
-<img src="https://github.com/bagasadiwaskita/wc22-analysis/blob/b4cd81b3e017ad6c90b511541ee833479cdc1744/Analysis_and_Visualization/Viz/Goals_Scored_per_Match_GS.png">
+<img src="https://github.com/bagasadiwaskita/wc22-analysis/blob/main/Analysis_and_Visualization/Viz/Goals_Scored_per_Match_GS.png">
 </p>
 
 <p align="center">
-<img src="https://github.com/bagasadiwaskita/wc22-analysis/blob/b4cd81b3e017ad6c90b511541ee833479cdc1744/Analysis_and_Visualization/Viz/Goals_Scored_per_Match.png">
+<img src="https://github.com/bagasadiwaskita/wc22-analysis/blob/main/Analysis_and_Visualization/Viz/Goals_Scored_per_Match.png">
 </p>
 
 From the charts above, we could expect that the top 2 in each group would make it into knockout stage. We also could expect that teams with higher goal scored stats would likely get a higher placement in the World Cup 2022.
@@ -196,11 +196,11 @@ Similar to goal scored stats, we could take information about the team's defensi
 Here is the distribution of goal conceded per international match in 4 years among all World Cup 2022 team participant.
 
 <p align="center">
-<img src="https://github.com/bagasadiwaskita/wc22-analysis/blob/b4cd81b3e017ad6c90b511541ee833479cdc1744/Analysis_and_Visualization/Viz/Goals_Conceded_per_Match_GS.png">
+<img src="https://github.com/bagasadiwaskita/wc22-analysis/blob/main/Analysis_and_Visualization/Viz/Goals_Conceded_per_Match_GS.png">
 </p>
 
 <p align="center">
-<img src="https://github.com/bagasadiwaskita/wc22-analysis/blob/b4cd81b3e017ad6c90b511541ee833479cdc1744/Analysis_and_Visualization/Viz/Goals_Conceded_per_Match.png">
+<img src="https://github.com/bagasadiwaskita/wc22-analysis/blob/main/Analysis_and_Visualization/Viz/Goals_Conceded_per_Match.png">
 </p>
 
 From the charts above, we could expect that the bottom 2 in each group would make it into knockout stage. We also could expect that teams with lower goal conceded stats would likely get a higher placement in the World Cup 2022.
@@ -214,19 +214,19 @@ A team's win streak is the number of match that a team is winning football match
 Here is the distribution of win streak on international matches in 4 years among all World Cup 2022 team participant.
 
 <p align="center">
-<img src="https://github.com/bagasadiwaskita/wc22-analysis/blob/b4cd81b3e017ad6c90b511541ee833479cdc1744/Analysis_and_Visualization/Viz/Win_Streak_GS.png">
+<img src="https://github.com/bagasadiwaskita/wc22-analysis/blob/main/Analysis_and_Visualization/Viz/Win_Streak_GS.png">
 </p>
 
 <p align="center">
-<img src="https://github.com/bagasadiwaskita/wc22-analysis/blob/b4cd81b3e017ad6c90b511541ee833479cdc1744/Analysis_and_Visualization/Viz/Win_Streak_GS-2.png">
+<img src="https://github.com/bagasadiwaskita/wc22-analysis/blob/main/Analysis_and_Visualization/Viz/Win_Streak_GS-2.png">
 </p>
 
 <p align="center">
-<img src="https://github.com/bagasadiwaskita/wc22-analysis/blob/b4cd81b3e017ad6c90b511541ee833479cdc1744/Analysis_and_Visualization/Viz/Win_Streak.png">
+<img src="https://github.com/bagasadiwaskita/wc22-analysis/blob/main/Analysis_and_Visualization/Viz/Win_Streak.png">
 </p>
 
 <p align="center">
-<img src="https://github.com/bagasadiwaskita/wc22-analysis/blob/b4cd81b3e017ad6c90b511541ee833479cdc1744/Analysis_and_Visualization/Viz/Win_Streak-2.png">
+<img src="https://github.com/bagasadiwaskita/wc22-analysis/blob/main/Analysis_and_Visualization/Viz/Win_Streak-2.png">
 </p>
 
 From the charts above, we could expect that the top 2 in each group would make it into knockout stage. We also could expect that teams with higher number of win streak would likely get a higher placement in the World Cup 2022.
@@ -246,19 +246,19 @@ A team's unbeaten streak is the number of match that a team is not losing footba
 Here is the distribution of unbeaten streak on international matches in 4 years among all World Cup 2022 team participant.
 
 <p align="center">
-<img src="https://github.com/bagasadiwaskita/wc22-analysis/blob/b4cd81b3e017ad6c90b511541ee833479cdc1744/Analysis_and_Visualization/Viz/Unbeaten_Streak_GS.png">
+<img src="https://github.com/bagasadiwaskita/wc22-analysis/blob/main/Analysis_and_Visualization/Viz/Unbeaten_Streak_GS.png">
 </p>
 
 <p align="center">
-<img src="https://github.com/bagasadiwaskita/wc22-analysis/blob/b4cd81b3e017ad6c90b511541ee833479cdc1744/Analysis_and_Visualization/Viz/Unbeaten_Streak_GS-2.png">
+<img src="https://github.com/bagasadiwaskita/wc22-analysis/blob/main/Analysis_and_Visualization/Viz/Unbeaten_Streak_GS-2.png">
 </p>
 
 <p align="center">
-<img src="https://github.com/bagasadiwaskita/wc22-analysis/blob/b4cd81b3e017ad6c90b511541ee833479cdc1744/Analysis_and_Visualization/Viz/Unbeaten_Streak.png">
+<img src="https://github.com/bagasadiwaskita/wc22-analysis/blob/main/Analysis_and_Visualization/Viz/Unbeaten_Streak.png">
 </p>
 
 <p align="center">
-<img src="https://github.com/bagasadiwaskita/wc22-analysis/blob/b4cd81b3e017ad6c90b511541ee833479cdc1744/Analysis_and_Visualization/Viz/Unbeaten_Streak-2.png">
+<img src="https://github.com/bagasadiwaskita/wc22-analysis/blob/main/Analysis_and_Visualization/Viz/Unbeaten_Streak-2.png">
 </p>
 
 From the charts above, we could expect that the top 2 in each group would make it into knockout stage. We also could expect that teams with higher number of unbeaten streak would likely get a higher placement in the World Cup 2022.
@@ -278,19 +278,19 @@ When it comes to a trend, if there is a positive trend, then there is a negative
 Here is the distribution of winless streak on international matches in 4 years among all World Cup 2022 team participant.
 
 <p align="center">
-<img src="https://github.com/bagasadiwaskita/wc22-analysis/blob/b4cd81b3e017ad6c90b511541ee833479cdc1744/Analysis_and_Visualization/Viz/Winless_Streak_GS.png">
+<img src="https://github.com/bagasadiwaskita/wc22-analysis/blob/main/Analysis_and_Visualization/Viz/Winless_Streak_GS.png">
 </p>
 
 <p align="center">
-<img src="https://github.com/bagasadiwaskita/wc22-analysis/blob/b4cd81b3e017ad6c90b511541ee833479cdc1744/Analysis_and_Visualization/Viz/Winless_Streak_GS-2.png">
+<img src="https://github.com/bagasadiwaskita/wc22-analysis/blob/main/Analysis_and_Visualization/Viz/Winless_Streak_GS-2.png">
 </p>
 
 <p align="center">
-<img src="https://github.com/bagasadiwaskita/wc22-analysis/blob/b4cd81b3e017ad6c90b511541ee833479cdc1744/Analysis_and_Visualization/Viz/Winless_Streak.png">
+<img src="https://github.com/bagasadiwaskita/wc22-analysis/blob/main/Analysis_and_Visualization/Viz/Winless_Streak.png">
 </p>
 
 <p align="center">
-<img src="https://github.com/bagasadiwaskita/wc22-analysis/blob/b4cd81b3e017ad6c90b511541ee833479cdc1744/Analysis_and_Visualization/Viz/Winless_Streak-2.png">
+<img src="https://github.com/bagasadiwaskita/wc22-analysis/blob/main/Analysis_and_Visualization/Viz/Winless_Streak-2.png">
 </p>
 
 From the charts above, we could expect that the bottom 2 in each group would make it into knockout stage. We also could expect that teams with lower number of winless streak would likely get a higher placement in the World Cup 2022.
@@ -310,19 +310,19 @@ A team's lose streak is the number of match that a team is losing football match
 Here is the distribution of lose streak on international matches in 4 years among all World Cup 2022 team participant.
 
 <p align="center">
-<img src="https://github.com/bagasadiwaskita/wc22-analysis/blob/b4cd81b3e017ad6c90b511541ee833479cdc1744/Analysis_and_Visualization/Viz/Lose_Streak_GS.png">
+<img src="https://github.com/bagasadiwaskita/wc22-analysis/blob/main/Analysis_and_Visualization/Viz/Lose_Streak_GS.png">
 </p>
 
 <p align="center">
-<img src="https://github.com/bagasadiwaskita/wc22-analysis/blob/b4cd81b3e017ad6c90b511541ee833479cdc1744/Analysis_and_Visualization/Viz/Lose_Streak_GS-2.png">
+<img src="https://github.com/bagasadiwaskita/wc22-analysis/blob/main/Analysis_and_Visualization/Viz/Lose_Streak_GS-2.png">
 </p>
 
 <p align="center">
-<img src="https://github.com/bagasadiwaskita/wc22-analysis/blob/b4cd81b3e017ad6c90b511541ee833479cdc1744/Analysis_and_Visualization/Viz/Lose_Streak.png">
+<img src="https://github.com/bagasadiwaskita/wc22-analysis/blob/main/Analysis_and_Visualization/Viz/Lose_Streak.png">
 </p>
 
 <p align="center">
-<img src="https://github.com/bagasadiwaskita/wc22-analysis/blob/b4cd81b3e017ad6c90b511541ee833479cdc1744/Analysis_and_Visualization/Viz/Lose_Streak-2.png">
+<img src="https://github.com/bagasadiwaskita/wc22-analysis/blob/main/Analysis_and_Visualization/Viz/Lose_Streak-2.png">
 </p>
 
 From the charts above, we could expect that the bottom 2 in each group would make it into knockout stage. We also could expect that teams with lower number of lose streak would likely get a higher placement in the World Cup 2022.
