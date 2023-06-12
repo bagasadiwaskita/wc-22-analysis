@@ -86,7 +86,8 @@ Since FIFA Ranking calculation is based on the game result directly, that means 
 Here is the distribution of FIFA Ranking among all World Cup 2022 participant.
 
 <p align="center">
-<img src="https://github.com/bagasadiwaskita/wc22-analysis/blob/main/Analysis_and_Visualization/Viz/FIFA_Ranking_GS.png"> | <img src="https://github.com/bagasadiwaskita/wc22-analysis/blob/main/Analysis_and_Visualization/Viz/FIFA_Ranking.png">
+<img src="https://github.com/bagasadiwaskita/wc22-analysis/blob/main/Analysis_and_Visualization/Viz/FIFA_Ranking_GS.png">
+<img src="https://github.com/bagasadiwaskita/wc22-analysis/blob/main/Analysis_and_Visualization/Viz/FIFA_Ranking.png">
 </p>
 
 From the pictures above, we could expect that the top 2 in each group would make it into knockout stage. We also could expect that higher ranked teams would likely get a higher placement in the World Cup 2022.
